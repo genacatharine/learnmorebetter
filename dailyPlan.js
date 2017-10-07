@@ -5,11 +5,22 @@ $( document ).ready(function() {
 
 $(".chicken").datepicker({
 onSelect: function(dateText){
-  (this.value)
+  console.log(this.value)
+
+ $.get( "dailyPlan.js", function() {
+  alert( "success" );
+})
+  .done(function() {
+    alert( "second success" );
+  })
+  .fail(function() {
+    alert( "error" );
+  })
+  .always(function() {
+    alert( "finished" );
+  });
 }
 })
-
-
 
   // $("this").click(function(){
   //   console.log("helloworld")
