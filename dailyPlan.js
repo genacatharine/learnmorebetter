@@ -1,11 +1,18 @@
 $( document ).ready(function() {
   $( function() {
-
     $( "#datepicker" ).datepicker();
+  });
 
-  } );
+$(".chicken").datepicker({
+onSelect: function(dateText){
+  (this.value)
+}
+})
 
-// $(".hasDatePicker").click({
-//   console.log("hey")
-// })
+
+
+  // $("this").click(function(){
+  //   console.log("helloworld")
+  // });
+
 })
