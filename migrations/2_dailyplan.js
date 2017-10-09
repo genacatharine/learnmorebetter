@@ -3,8 +3,8 @@
 exports.up = (knex, Promise) => {
   return knex.schema.createTable("dailyplans", (table) => {
     table.increments();
-    table.dateTime("plan_date").notNullable().defaultTo(knex.fn.now());
-    table.integer("created_by_instructor")
+    table.dateTime("date").notNullable().defaultTo(knex.fn.now());
+    table.integer("users_id")
       .notNullable()
       .references("id")
       .inTable("users")
