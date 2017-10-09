@@ -42,7 +42,7 @@ exports.seed = (knex, Promise) => {
           last_name: "Israel",
           email: "gena@gena.com",
           hashed_password: "",
-          is_instructor: true,
+          is_instructor: false,
           is_enabled: true
         },
         {
@@ -52,7 +52,7 @@ exports.seed = (knex, Promise) => {
           last_name: "Olivetree",
           email: "danah@danah.com",
           hashed_password: "",
-          is_instructor: true,
+          is_instructor: false,
           is_enabled: true
         },
         {
@@ -62,7 +62,7 @@ exports.seed = (knex, Promise) => {
           last_name: "Burns",
           email: "stevenjburns@msn.com",
           hashed_password: "",
-          is_instructor: true,
+          is_instructor: false,
           is_enabled: true
         },
       ]);
