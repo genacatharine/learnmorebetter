@@ -2,9 +2,9 @@ $( document ).ready(function() {
 //   $( function() {
 //     $( "#datepicker" ).datepicker();
 //   });
-$(document).on('click', '.chicken', function(e){
-  console.log(this.value)
-})
+// $(document).on('click', '.chicken', function(e){
+//   console.log(this.value)
+// })
 // $("#chicken").datepicker({
 // onSelect: function(dateText){
 //   console.log('this value', this.value)
