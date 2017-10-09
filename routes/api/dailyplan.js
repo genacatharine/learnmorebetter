@@ -5,17 +5,20 @@ const boom = require('boom')
 const bcrypt = require('bcrypt')
 // var date
 
-router.get('/', (req, res, next) => {
+router.get('/dailyplan', (req, res, next) => {
+  console.log('am i here? i want to be here.')
+  console.log('req.params.date ', req.params.date)
+  let date = req.params.date
 
-  if (!req.body.date) {
-    // return
-    knex('dailyplans')
-      .select('*')
-      .then((plans) => {
-        res.send(plans)
-      }).catch((err) => next(err))
-  } else {
-    date = req.body.date
+  // if (!req.body.date) {
+  //   // return
+  //   knex('dailyplans')
+  //     .select('*')
+  //     .then((plans) => {
+  //       res.send(plans)
+  //     }).catch((err) => next(err))
+  // } else {
+    // date = req.body.date || 2017-10-02
     //might need to parse date
     knex('dailyplan')
       .pluck('dailyplans_events.event_time as time', 'dailyplans_events.plan', 'lessons.title as lesson', 'lessons.location_url as lessonLink')
@@ -26,7 +29,7 @@ router.get('/', (req, res, next) => {
       .then((plan) => {
         res.send(plan)
       }).catch((err) => next(err))
-  }
+  // }
 })
 
 router.post('/', (res, req, next) => {
