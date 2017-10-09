@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 // var date
 
 router.get('/', function(req, res, next) {
-  res.render('./dailyplan/', {title: 'Learn.More.Better.', _layoutFile: 'layout.ejs'});
+  res.render('./dailyplan/');
 });
 
 module.exports = router;
