@@ -5,8 +5,10 @@
     <% include ../partials/head.ejs %>
   </head>
   <body>
-    <% include ../partials/nav.ejs %>
 
+
+    <% include ../partials/nav.ejs %>
+<div id="datepicker"></div>
     <table id="dailyPlan" class="table table-inverse">
       <thead>
         <th>Time</th>
@@ -18,7 +20,7 @@
     </table>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <% include ../partials/functions.ejs %>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
  </body>
