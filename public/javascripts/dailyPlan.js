@@ -1,10 +1,10 @@
 $( document ).ready(function() {
-  $( function() {
-    $( "#datepicker" ).datepicker();
-  });
-
-$(".chicken").datepicker({
-onSelect: function(dateText){
+//   $( function() {
+//     $( "#datepicker" ).datepicker();
+//   });
+//
+// $(".chicken").datepicker({
+// onSelect: function(dateText){
   // console.log('this value', this.value)
 
  $.getJSON('/api/v1/dailyplan', {"date": this.value}).then( (data) => {
