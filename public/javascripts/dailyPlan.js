@@ -2,11 +2,13 @@ $( document ).ready(function() {
 //   $( function() {
 //     $( "#datepicker" ).datepicker();
 //   });
-//
-// $(".chicken").datepicker({
+$(document).on('click', '.chicken', function(e){
+  console.log(this.value)
+})
+// $("#chicken").datepicker({
 // onSelect: function(dateText){
-  // console.log('this value', this.value)
-
+//   console.log('this value', this.value)
+// }
  $.getJSON('/api/v1/dailyplan', {"date": this.value}).then( (data) => {
   console.log('get dailyplan ', data)
   let tbody = $('#dailyplan tbody')
@@ -24,21 +26,8 @@ $( document ).ready(function() {
   })
 })
 
-
-  // .done(function() {
-  //   alert( "second success" );
-  // })
-  // .fail(function() {
-  //   alert( "error" );
-  // })
-  // .always(function() {
-  //   alert( "finished" );
-  // });
 }
-})
 
   // $("this").click(function(){
   //   console.log("helloworld")
   // });
-
-})
