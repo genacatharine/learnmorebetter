@@ -6,6 +6,9 @@ const bcrypt = require('bcrypt')
 // var date
 
 router.get('/', (req, res, next) => {
+  console.log('am i here? i want to be here.')
+  console.log('req.params.date ', req.params.date)
+  let date = req.params.date
 
   if (!req.body.date) {
     // return
@@ -15,8 +18,8 @@ router.get('/', (req, res, next) => {
         res.send(plans)
       }).catch((err) => next(err))
   } else {
-    date = req.body.date
-    //might need to parse date
+    date = req.params.date || 2017-10-02
+    // might need to parse date
     knex('dailyplan')
       .pluck('dailyplans_events.event_time as time', 'dailyplans_events.plan', 'lessons.title as lesson', 'lessons.location_url as lessonLink')
       .where('date', date)
