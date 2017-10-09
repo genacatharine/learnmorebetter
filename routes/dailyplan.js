@@ -22,8 +22,7 @@ router.get('/', (req, res, next) => {
       .where('date', date)
       .innnerJoin('dailyplans_events')
       .on(dailyplans_events.dailyplan_id = dailyplans.id)
-      .innerJoin('lessons')
-      .on('lessons.id' = 'dailyplans_events.lesson_id')
+      .innerJoin('lessons', 'dailyplans_events.lesson_id', 'lessons.id')
       .then((plan) => {
         res.send(plan)
       }).catch((err) => next(err))
