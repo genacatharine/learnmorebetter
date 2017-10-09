@@ -6,11 +6,10 @@ const bcrypt = require('bcrypt')
 // var date
 
 router.get('/', (req, res, next) => {
-  console.log('am i here? i want to be here.')
-  console.log('req.params.date ', req.params.date)
-  let date = req.params.date
 
-  if (!req.body.date) {
+
+
+  if (!req.query.date) {
     // return
     knex('dailyplans')
       .select('*')
@@ -18,17 +17,27 @@ router.get('/', (req, res, next) => {
         res.send(plans)
       }).catch((err) => next(err))
   } else {
-    date = req.params.date || 2017-10-02
+    console.log('am i here? i want to be here.')
+
+    date = req.query.date
     // might need to parse date
-    knex('dailyplan')
-      .pluck('dailyplans_events.event_time as time', 'dailyplans_events.plan', 'lessons.title as lesson', 'lessons.location_url as lessonLink')
-      .where('date', date)
-      .innnerJoin('dailyplans_events')
-      .on(dailyplans_events.dailyplan_id = dailyplans.id)
-      .innerJoin('lessons', 'dailyplans_events.lesson_id', 'lessons.id')
+    knex('dailyplans')
+      .where('dailyplans.date', `${date}T06:00:00.000Z`)
+      .innerJoin("dailyplans_events", "dailyplans_events.dailyplan_id", "dailyplans.id")
+      .select('dailyplans_events.event_time as time', 'dailyplans_events.plan')
       .then((plan) => {
-        res.send(plan)
-      }).catch((err) => next(err))
+        console.log(plan)
+      res.send(plan)
+    }).catch((err) => next(err))
+
+      // .pluck('dailyplans_events.event_time as time', 'dailyplans_events.plan')
+      // .where('date', 'like', date)
+      // .innnerJoin('dailyplans', 'dailyplans_events')
+      // .on('dailyplans.id', 'dailyplans_events.dailyplan_id')
+      // .then((plan) => {
+      //   console.log(plan)
+      //   res.send(plan)
+      // }).catch((err) => next(err))
   }
 })
 
