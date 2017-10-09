@@ -18,17 +18,14 @@ router.get('/', (req, res, next) => {
     date = req.body.date
     //might need to parse date
     knex('dailyplan')
-      .pluck('dailyplans_events.event_time as time', 'dailyplans_events.plan')
-      // , 'lessons.title as lesson', 'lessons.location_url as lessonLink')
+      .pluck('dailyplans_events.event_time as time', 'dailyplans_events.plan', 'lessons.title as lesson', 'lessons.location_url as lessonLink')
       .where('date', date)
       .innnerJoin('dailyplans_events')
       .on(dailyplans_events.dailyplan_id = dailyplans.id)
-      // .innerJoin('lessons')
-      // .on('lessons.id' = 'dailyplans_events.lesson_id')
+      .innerJoin('lessons')
+      .on('lessons.id' = 'dailyplans_events.lesson_id')
       .then((plan) => {
         res.send(plan)
-
-        //plan = {time, plan, lesson, lessonLink}
       }).catch((err) => next(err))
   }
 })
