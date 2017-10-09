@@ -11,26 +11,25 @@ router.get('/', (req, res, next) => {
     // return
     knex('dailyplans')
       .select('*')
-      .then( (plans) => {
+      .then((plans) => {
         res.send(plans)
-      }).catch( (err) => next(err))
-  }
-  else {
+      }).catch((err) => next(err))
+  } else {
     date = req.body.date
-      //might need to parse date
+    //might need to parse date
     knex('dailyplan')
       .pluck('dailyplans_events.event_time as time', 'dailyplans_events.plan')
       // , 'lessons.title as lesson', 'lessons.location_url as lessonLink')
       .where('date', date)
-     .innnerJoin('dailyplans_events')
-     .on(dailyplans_events.dailyplan_id = dailyplans.id)
-    // .innerJoin('lessons')
-    // .on('lessons.id' = 'dailyplans_events.lesson_id')
-      .then( (plan) => {
+      .innnerJoin('dailyplans_events')
+      .on(dailyplans_events.dailyplan_id = dailyplans.id)
+      // .innerJoin('lessons')
+      // .on('lessons.id' = 'dailyplans_events.lesson_id')
+      .then((plan) => {
         res.send(plan)
 
         //plan = {time, plan, lesson, lessonLink}
-      }).catch( (err) => next(err))
+      }).catch((err) => next(err))
   }
 })
 
@@ -39,29 +38,45 @@ router.post('/', (res, req, next) => {
   newPlan.date = date
   newPlan.createdBy = createdBy
   console.log(req.body)
-  const {date, createdBy, plans} = req.body
+  const {
+    date,
+    createdBy,
+    plans
+  } = req.body
   knex('dailyplans')
-    .insert({'plan_date': newPlan.date, 'created_by_instructor': newPlan.createdBy}, 'id')
-    .then( (id) => {
+    .insert({
+      'plan_date': newPlan.date,
+      'created_by_instructor': newPlan.createdBy
+    }, 'id')
+    .then((id) => {
       plans.forEach((el) => {
-        newPlan.time = el.time
-        newPlan.plan = el.plan
-        if (lessonId) {
-          newPlan.lessonId = lessonId
-        }
-        knex('dailyplans_events')
-          .insert({'dailyplan_id': id, 'event_time': newPlan.time, 'plan': newPlan.plan, 'lesson_id': newPlan.lessonId}, 'lesson_id')
+          newPlan.time = el.time
+          newPlan.plan = el.plan
+          if (lessonId) {
+            newPlan.lessonId = lessonId
+          }
+          knex('dailyplans_events')
+            .insert({
+              'dailyplan_id': id,
+              'event_time': newPlan.time,
+              'plan': newPlan.plan,
+              'lesson_id': newPlan.lessonId
+            }, 'lesson_id')
         })
-        .then( (lesson) => {
-          if(lesson) {
-          knex('lessons')
-          .select('title', 'location_url') //might not need title
-          .where('id', newPlan.lessonId)
+        .then((lesson) => {
+          if (lesson) {
+            knex('lessons')
+              .select('title', 'location_url') //might not need title
+              .where('id', newPlan.lessonId)
+              .then( (lessonInfo) => {
+                res.send(lessonInfo)
+              })
+          }
+          else res.send(200)
+        })
 
-          })
-        }
 
-  })
+    }).catch( (err) => next(err))
 
 
 
