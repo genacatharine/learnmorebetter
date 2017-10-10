@@ -1,12 +1,44 @@
 <script>
-  $( function() {
-   $( "#datepicker" ).datepicker();
-   
- } );
+  $(function() {
+  $("#datepicker").datepicker({
+      onSelect: function(date, obj) {
 
-//  //
-//  $(".chicken").datepicker({
-//
-// }
+        $.getJSON('/api/v1/dailyplan', {
+          "date": this.value
+        }).then((data) => {
+          console.log('get dailyplan ', data)
+          let tbody = $('#dailyPlan tbody')
+          $(tbody).empty()
+          data.forEach((item) => {
+            tbody.append($(`<tr>
+            <td>${item.time}</td>
+            <td>${item.plan}</td>
+            <td><a href="${item.lessonLink}">${item.lesson}</a></td>
+            </tr>`))
+          })
+          console.log("functions.ejs works " + this.value);
+        })
+        //  {
+        //  onSelect: function(date) {
+        //    alert("date")
+        //  }
+        // var date = $(this).val();
+      }
+  })
 
+  })
+
+  //
+  // })
+
+  // <!-- $('td[data-handler="selectDay"]').click(function){
+  //   console.log(this.date)
+
+
+  // } )
+  // <!-- $('td[data-handler="selectDay"]').click(function){
+  //   console.log(this.date)
+
+
+  // <!-- $(".chicken").datepicker({
 </script>
