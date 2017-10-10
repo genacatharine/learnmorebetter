@@ -5,8 +5,10 @@
 
         $.getJSON('/api/v1/dailyplan', {
           "date": this.value
+
         }).then((data) => {
-          console.log('get dailyplan ', data)
+            console.log(this.value)
+          // console.log('get dailyplan ', data)
           let tbody = $('#dailyPlan tbody')
           $(tbody).empty()
           data.forEach((item) => {
