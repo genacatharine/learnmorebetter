@@ -4,7 +4,7 @@
       onSelect: function(date, obj) {
 
         $.getJSON('/api/v1/dailyplan', {
-          "date": '2017-10-02'
+          "date": this.value
         }).then((data) => {
           console.log('get dailyplan ', data)
           let tbody = $('#dailyPlan tbody')
