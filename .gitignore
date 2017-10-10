@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# No package lock
+package-lock.json
+
+# macOS junk
+.DS_Store
