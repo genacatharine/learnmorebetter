@@ -3,7 +3,7 @@ $( document ).ready(function() {
 
 
 
- $.getJSON('/api/v1/dailyplan', {"date": '2017-10-02'}).then( (data) => {
+ $.getJSON('/api/v1/dailyplan').then( (data) => {
   console.log('get dailyplan ', data)
   let tbody = $('#dailyPlan tbody')
   data.forEach( (item) => {
