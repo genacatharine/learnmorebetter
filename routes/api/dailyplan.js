@@ -7,8 +7,6 @@ const bcrypt = require('bcrypt')
 
 router.get('/', (req, res, next) => {
 
-
-
   if (!req.query.date) {
     // return
     knex('dailyplans')
