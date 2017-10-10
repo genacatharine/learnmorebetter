@@ -7,7 +7,7 @@ a {
   color: #00B7FF;
 }*/
 .ui-datepicker {
-  
+
 background: #fff; /* Old browsers */
 background: #fff -moz-linear-gradient(top, #fcfcfc 0%, #fff 100%); /* FF3.6+ */
 background: #fff -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc)), color-stop(100%,#fff)); /* Chrome,Safari4+ */
@@ -45,4 +45,7 @@ float:right;
 .ui-datepicker-title {
 text-align: center;
 font-weight:bold;
+}
+.ui-datepicker-month, .ui-datepicker-year {
+  font-size: 30px;
 }
