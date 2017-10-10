@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
   let assts = {}
   knex('users')
     .where('users.id', id)
-    .innerJoin('users_assignments', 'users.id', 'users.assignments.user_id')
+    .innerJoin('users_assignments', 'users.id', 'users_assignments.user_id')
     .innerJoin('assignments', 'users_assignments.assignment_id', 'assignments.id')
     .select('assignments.title', 'assignments.description', 'assignments.location_url as locationUrl', 'assignments.submit_url as submitUrl')
     .then( (assts) => {
