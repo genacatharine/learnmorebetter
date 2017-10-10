@@ -7,6 +7,7 @@ $( document ).ready(function() {
   console.log('get dailyplan ', data)
   let tbody = $('#dailyPlan tbody')
   data.forEach( (item) => {
+    let time = item.time
   tbody.append($(`<tr>
     <td>${item.time}</td>
     <td>${item.plan}</td>
