@@ -3,14 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-  "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;",
-  "knex": "knex",
-  "nodemon": "node app.js",
+    "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;",
+    "knex": "knex",
+    "nodemon": "node app.js",
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
+    "bcrypt-as-promised": "^1.1.0",
     "body-parser": "^1.17.2",
     "boom": "^6.0.0",
     "cookie-parser": "^1.4.3",

@@ -13,6 +13,7 @@ var dailyplan = require('./routes/dailyplan')
 var assts = require('./routes/assts')
 var apidp = require('./routes/api/dailyplan')
 var apiassts = require('./routes/api/assts')
+var users = require('./routes/users');
 
 
 // view engine setup
