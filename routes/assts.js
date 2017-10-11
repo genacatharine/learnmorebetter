@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 // var date
 
 router.get('/', function(req, res, next) {
-  res.render('./assignments/', {userId: req.params.userId});
+  res.render('./assignments/', {userId: req.cookies.session.userId});
 });
 
 module.exports = router;
