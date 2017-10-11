@@ -11,8 +11,10 @@ var index = require('./routes/index')
 var users = require('./routes/helps')
 var dailyplan = require('./routes/dailyplan')
 var assts = require('./routes/assts')
+var helps = require('./routes/helps')
 var apidp = require('./routes/api/dailyplan')
 var apiassts = require('./routes/api/assts')
+var apihelps = require('./routes/api/helps')
 
 
 // view engine setup
@@ -31,8 +33,10 @@ app.use('/', index)
 app.use('/users', users)
 app.use('/dailyplan', dailyplan)
 app.use('/assts', assts)
+app.use('/helps', helps)
 app.use('/api/v1/dailyplan', apidp)
 app.use('/api/v1/assts', apiassts)
+app.use('/api/vi/helps', apihelps)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
