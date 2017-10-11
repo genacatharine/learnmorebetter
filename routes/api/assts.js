@@ -7,8 +7,10 @@ const bcrypt = require('bcrypt')
 
 router.get('/', (req, res, next) => {
   console.log('am i here? i want to be here. this is the assts.js api route')
-  let id = req.params.usersId
+  let id = req.params.userId
+  console.log('id ', id)
   let assts = {}
+  console.log(assts)
   knex('users')
     .where('users.id', id)
     .innerJoin('users_assignments', 'users.id', 'users_assignments.user_id')
