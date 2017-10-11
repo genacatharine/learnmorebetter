@@ -9,20 +9,12 @@ router.get('/', (req, res, next) => {
   console.log('this is the assts.js api route')
   // let id = req.params.userId
   let id = 5
-  // knex('users_assignments')
-  //   .where('users_assignments.user_id', id)
-  //   .innerJoin('assignments', 'users_assignments.assignment_id', 'assignments.id')
-  //   .select('assignments.title as title', 'assignments.location_url as locationUrl', 'assignments.submit_url as submitUrl', 'users_assignments.grade as grade')
-  //   .then( (assts) => {
-  //     console.log('this is a console log of assignments ', assts)
-  //     res.send(assts)
-  //   }).catch( (err) => next(err))
-  knex('assignments')
-    .select('assignments.title', 'assignments.location_url as locationUrl', 'assignments.submit_url as submitUrl', 'units.title as unit', 'units.location_url as unitUrl')
-    .innerJoin('units', 'assignments.unit_id', 'units.id')
-    // .innerJoin('users_assignments', 'users_assignments.assignment_id', 'assignments.id')
 
-    //  .where('users_assignments.user_id', id)
+  knex('assignments')
+    .select('assignments.title', 'assignments.location_url as locationUrl', 'assignments.submit_url as submitUrl', 'units.title as unit', 'units.location_url as unitUrl', 'users_assignments.grade')
+    .innerJoin('units', 'assignments.unit_id', 'units.id')
+    .innerJoin('users_assignments', 'users_assignments.assignment_id', 'assignments.id')
+    .where('users_assignments.user_id', 5)
     .then ( (assts) => {
       console.log('this is a console log of assignments ', assts)
       res.send(assts)

@@ -9,7 +9,7 @@ $( document ).ready(function() {
       <td><a href="${item.unitUrl}">${item.unit}</a></td>
       <td><a href="${item.submitUrl}" class="btn btn-default">Submit</a></td>
       <td>${item.grade}</td>
-      <td><button type="submit" class="btn btn-primary" id="helpme">Add to Help Board</button></td>
+      <td><button type="submit" class="btn btn-primary" id="helpme">Add Me to Help Board</button></td>
 
       </tr>`))
     })
