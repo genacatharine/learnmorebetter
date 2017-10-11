@@ -42,6 +42,10 @@ exports.up = (knex, Promise) => {
       table.varchar("description", 255);
       table.varchar("location_url", 255);
       table.varchar("submit_url", 255);
+      table.integer("lesson_id", 255)
+        .references("id")
+        .inTable("lessons")
+        .onDelete("CASCADE");
       table.integer("mastery_id")
         .notNullable()
         .references("id")
