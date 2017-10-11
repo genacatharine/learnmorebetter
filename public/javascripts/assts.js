@@ -18,10 +18,3 @@ $( document ).ready(function() {
 })
 
 })
-
-
-
-
-  // $("this").click(function(){
-  //   console.log("helloworld")
-  // });

@@ -8,7 +8,6 @@ const bcrypt = require('bcrypt')
 router.get('/', (req, res, next) => {
 
   if (!req.query.date) {
-    // return
     knex('dailyplans')
       .select('*')
       .then((plans) => {
@@ -18,7 +17,6 @@ router.get('/', (req, res, next) => {
     console.log('am i here? i want to be here.')
 
     date = req.query.date
-    // might need to parse date
     knex('dailyplans')
       .where('dailyplans.date', `${date}`)
       .innerJoin("dailyplans_events", "dailyplans_events.dailyplan_id", "dailyplans.id")

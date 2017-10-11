@@ -9,7 +9,7 @@ exports.up = (knex, Promise) => {
       .references("id")
       .inTable("dailyplans")
       .onDelete("CASCADE");
-    table.dateTime("event_time").notNullable().defaultTo(knex.fn.now());
+    table.time("event_time").notNullable().defaultTo(knex.fn.now());
     table.varchar("plan", 255);
     table.integer("lesson_id").defaultTo(0);
     table.timestamps(true, true);
