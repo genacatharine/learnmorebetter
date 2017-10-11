@@ -20,22 +20,13 @@ router.get('/', (req, res, next) => {
     date = req.query.date
     // might need to parse date
     knex('dailyplans')
-      .where('dailyplans.date', `${date}T06:00:00.000Z`)
+      .where('dailyplans.date', `${date}`)
       .innerJoin("dailyplans_events", "dailyplans_events.dailyplan_id", "dailyplans.id")
       .select('dailyplans_events.event_time as time', 'dailyplans_events.plan')
       .then((plan) => {
         console.log(plan)
       res.send(plan)
     }).catch((err) => next(err))
-
-      // .pluck('dailyplans_events.event_time as time', 'dailyplans_events.plan')
-      // .where('date', 'like', date)
-      // .innnerJoin('dailyplans', 'dailyplans_events')
-      // .on('dailyplans.id', 'dailyplans_events.dailyplan_id')
-      // .then((plan) => {
-      //   console.log(plan)
-      //   res.send(plan)
-      // }).catch((err) => next(err))
   }
 })
 
