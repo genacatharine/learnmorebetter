@@ -40,7 +40,7 @@ app.use('/assts', assts)
 app.use('/helps', helps)
 app.use('/api/v1/dailyplan', apidp)
 app.use('/api/v1/assts', apiassts)
-app.use('/api/vi/helps', apihelps)
+app.use('/api/v1/helps', apihelps)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
