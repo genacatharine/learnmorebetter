@@ -1,12 +1,25 @@
-var express = require('express');
-var router = express.Router();
-let bcrypt = require('bcrypt');
+const express = require('express');
+const bcrypt = require('bcrypt');
+
+let router = express.Router();
 
 /* GET home page. */
+<<<<<<< HEAD
 // router.get('/', function(req, res, next) {
 //   bcrypt.hash("learnmorebetter", 10)
 //     .then(console.log, console.error);
 //   res.render('./', { title: 'Learn.More.Better.', _layoutFile: 'layout.ejs'});
 // });
+=======
+router.get('/', (req, res, next) => {
+  res.render('./', { title: 'Learn.More.Better.', _layoutFile: 'layout.ejs'});
+});
+>>>>>>> More routes for login and register
+
+
+router.post('/', (req, res, next) => {
+  console.log("Got incoming password");
+  res.end("Got your password");
+})
 
 module.exports = router;
