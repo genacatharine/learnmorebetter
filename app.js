@@ -31,7 +31,7 @@ app.use('/', index)
 app.use('/users', users)
 app.use('/dailyplan', dailyplan)
 app.use('/api/v1/dailyplan', apidp)
-app.use('/api/vi/assts', apiassts)
+app.use('/api/v1/assts', apiassts)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
