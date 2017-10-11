@@ -1,9 +1,11 @@
-$( document ).ready(function() {
+$(document).ready(function() {
 
- $.getJSON('/api/v1/assts', {userId: 5}).then( (data) => {
-  let tbody = $('#assignments tbody')
-  data.forEach( (item) => {
-    tbody.append($(`<tr>
+  $.getJSON('/api/v1/assts', {
+    userId: 5
+  }).then((data) => {
+    let tbody = $('#assignments tbody')
+    data.forEach((item) => {
+      tbody.append($(`<tr>
       <td><a href="${item.locationUrl}">${item.title}</a></td>
       <td><a href="${item.unitUrl}">${item.unit}</a></td>
       <td><a href="${item.submitUrl}" class="btn btn-default">Submit</a></td>
