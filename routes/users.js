@@ -5,8 +5,8 @@ const router = express.Router();
 const bcrypt = require('bcrypt-as-promised');
 const knex = require('../knex');
 
-router.post('/users', (req, res, next) => {
-  bcrypt.hash(req.body.password, 12)
+router.post('/', (req, res, next) => {
+  bcrypt.hash(req.body.password, 10)
     .then((hashed_password) => {
       return knex('users')
         .insert({
