@@ -41,7 +41,7 @@ exports.seed = (knex, Promise) => {
           middle_initial: "",
           last_name: "Israel",
           email: "gena@gena.com",
-          hashed_password: "",
+          hashed_password: "$2a$10$b5ZN4Jsr.xPdD7FswhRHf.r.GtcH/jBsIsGuDOrdV4YYceDCpdnLe",
           is_instructor: false,
           is_enabled: true
         },

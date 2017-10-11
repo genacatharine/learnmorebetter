@@ -5,7 +5,7 @@
   "scripts": {
     "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;",
     "knex": "knex",
-    "nodemon": "node app.js",
+    "nodemon": "node ./bin/www",
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www"
   },
@@ -24,7 +24,7 @@
     "serve-favicon": "~2.4.2"
   },
   "description": "",
-  "main": "app.js",
+  "main": "bin/www",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/genacatharine/learnmorebetter.git"
