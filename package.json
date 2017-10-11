@@ -3,9 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+  "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;",
+  "knex": "knex",
+  "nodemon": "node app.js",
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
-    "knex": "knex"
+
+
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
@@ -33,11 +37,8 @@
     "url": "https://github.com/genacatharine/learnmorebetter/issues"
   },
   "homepage": "https://github.com/genacatharine/learnmorebetter#readme"
-}
+},
 "engines": {
   "node": "8.6.0"
-}
-}
-{"scripts": {"start": "node ./bin/www","knex": "knex","heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;","nodemon": "node app.js"
 }
 }
