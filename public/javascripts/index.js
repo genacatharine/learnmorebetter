@@ -1,28 +1,13 @@
-$(document).ready(function() {
-
+$( document ).ready(() => {
   $(".login").click(() => {
-    event.preventDefault();
-    let loginEmail = $('#loginEmail').val();
-    let loginPassword = $('#loginPassword').val();
+    let loginData = JSON.stringify({
+    email: $('#loginEmail').val(),
+    password: $('#loginPassword').val()
+  });
 
+  console.log('Sending Data : ', loginData);
 
-    let logindata = JSON.stringify({
-      email: loginEmail,
-      password: loginPassword
-    })
-
-    console.log("sending data", logindata);
-
-    $.ajax({
-      type: 'POST',
-      url: '/',
-      data: logindata,
-      contentType: 'application/json',
-      success: (data) => {
-        console.log("Data added!", logindata)
-      },
-      error: console.log("you suck")
-
-    });
-  })
-})
+  $.post("/", loginData)
+  .done((response) => console.log(response), "json")
+  });
+});
