@@ -60,10 +60,11 @@ exports.up = (knex, Promise) => {
 
 exports.down = (knex, Promise) => {
   return Promise.all([
-    knex.schema.dropTable("mastery_track"),
+
     knex.schema.dropTable("assignments"),
     knex.schema.dropTable("lessons"),
     knex.schema.dropTable("units"),
-    knex.schema.dropTable("dailyplans_events")
+    knex.schema.dropTable("dailyplans_events"),
+    knex.schema.dropTable("mastery_track")
   ]);
 };
