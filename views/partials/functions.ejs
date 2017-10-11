@@ -1,32 +1,22 @@
 <script>
-  $(() => {
+  $(function() {
   $("#datepicker").datepicker({
-      onSelect: (date, obj) => {
-        $.getJSON('/api/v1/dailyplan', { "date": this.value })
-          .then((data) => {
-            $('#dailyPlan tbody').empty();
-
-            data.forEach((item) => {
-              tbody.append($(`<tr>
-              <td>${item.time}</td>
-              <td>${item.plan}</td>
-              <td><a href="${item.lessonLink}">${item.lesson}</a></td>
-              </tr>`))
-            })
-            console.log("functions.ejs works " + this.value);
+      onSelect: function(date, obj) {
+        $.getJSON('/api/v1/dailyplan', {
+          "date": this.value
+        }).then((data) => {
+          let tbody = $('#dailyPlan tbody')
+          $(tbody).empty()
+          data.forEach((item) => {
+            tbody.append($(`<tr>
+            <td>${item.time}</td>
+            <td>${item.plan}</td>
+            <td><a href="${item.lessonLink}">${item.lesson}</a></td>
+            </tr>`))
           })
-        //  {
-        //  onSelect: function(date) {
-        //    alert("date")
-        //  }
-        // var date = $(this).val();
+        })
       }
-    })
   })
+})
 
-  // <!-- $('td[data-handler="selectDay"]').click(function){
-  //   console.log(this.date)
-  // } )
-  // <!-- $('td[data-handler="selectDay"]').click(function){
-  //   console.log(this.date)
 </script>
