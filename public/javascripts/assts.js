@@ -7,8 +7,9 @@ $( document ).ready(function() {
     tbody.append($(`<tr>
       <td><a href="${item.locationUrl}">${item.title}</a></td>
       <td><a href="${item.unitUrl}">${item.unit}</a></td>
-      <td><a href="${item.submitUrl}">Submit Here</a></td>
+      <td><a href="${item.submitUrl}" class="btn btn-default">Submit</a></td>
       <td>${item.grade}</td>
+      <td><button type="submit" class="btn btn-primary" id="helpme">Add to Help Board</button></td>
 
       </tr>`))
     })
