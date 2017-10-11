@@ -10,6 +10,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 1,
           mastery_id: 1
         },
         {
@@ -18,6 +19,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 2,
           mastery_id: 1
         },
         {
@@ -26,6 +28,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 3,
           mastery_id: 1
         },
         {
@@ -34,6 +37,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 4,
           mastery_id: 1
         },
         {
@@ -42,6 +46,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 5,
           mastery_id: 1
         },
         {
@@ -50,6 +55,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 6,
           mastery_id: 1
         },
         {
@@ -58,6 +64,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 7,
           mastery_id: 1
         },
         {
@@ -66,6 +73,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 8,
           mastery_id: 1
         },
         {
@@ -74,6 +82,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 9,
           mastery_id: 1
         },
         {
@@ -82,6 +91,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 10,
           mastery_id: 1
         },
         {
@@ -90,6 +100,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 11,
           mastery_id: 1
         },
         {
@@ -98,6 +109,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 12,
           mastery_id: 1
         },
         {
@@ -106,6 +118,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 13,
           mastery_id: 1
         },
         {
@@ -114,6 +127,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 14,
           mastery_id: 1
         },
         {
@@ -122,6 +136,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 15,
           mastery_id: 1
         },
         {
@@ -130,6 +145,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 16,
           mastery_id: 1
         },
         {
@@ -138,6 +154,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 17,
           mastery_id: 1
         },
         {
@@ -146,6 +163,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 18,
           mastery_id: 1
         },
         {
@@ -154,6 +172,7 @@ exports.seed = (knex, Promise) => {
           description: "none",
           location_url: "www.assignment.com",
           submit_url: "www.submit.com",
+          unit_id: 19,
           mastery_id: 1
         }
       ]);

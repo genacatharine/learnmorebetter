@@ -6,7 +6,7 @@ $( document ).ready(function() {
   data.forEach( (item) => {
     tbody.append($(`<tr>
       <td><a href="${item.locationUrl}">${item.title}</a></td>
-      <td><a href="${item.lessonUrl}">${item.lesson}</a></td>
+      <td><a href="${item.unitUrl}">${item.unit}</a></td>
       <td><a href="${item.submitUrl}">Submit Here</a></td>
       <td>${item.grade}</td>
 

@@ -18,11 +18,11 @@ router.get('/', (req, res, next) => {
   //     res.send(assts)
   //   }).catch( (err) => next(err))
   knex('assignments')
-    .select('assignments.title', 'assignments.location_url as locationUrl', 'assignments.submit_url as submitUrl', 'users_assignments.grade')
-    .where('users_assignments.user_id', id)
-    .innerJoin('users_assignments', 'users_assignments.assignment_id', 'assignments.id')
-    .innerJoin('lessons', 'assignments.lesson_id', 'lessons.id')
+    .select('assignments.title', 'assignments.location_url as locationUrl', 'assignments.submit_url as submitUrl', 'units.title as unit', 'units.location_url as unitUrl')
+    .innerJoin('units', 'assignments.unit_id', 'units.id')
+    // .innerJoin('users_assignments', 'users_assignments.assignment_id', 'assignments.id')
 
+    //  .where('users_assignments.user_id', id)
     .then ( (assts) => {
       console.log('this is a console log of assignments ', assts)
       res.send(assts)

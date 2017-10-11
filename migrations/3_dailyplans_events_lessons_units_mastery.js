@@ -34,6 +34,7 @@ exports.up = (knex, Promise) => {
       table.increments();
       table.varchar("title", 255);
       table.varchar("description", 255);
+      table.varchar("location_url", 255);
       table.timestamps(true, true);
     }),
     knex.schema.createTable("assignments", (table) => {
@@ -42,9 +43,9 @@ exports.up = (knex, Promise) => {
       table.varchar("description", 255);
       table.varchar("location_url", 255);
       table.varchar("submit_url", 255);
-      table.integer("lesson_id", 255)
+      table.integer("unit_id", 255)
         .references("id")
-        .inTable("lessons")
+        .inTable("units")
         .onDelete("CASCADE");
       table.integer("mastery_id")
         .notNullable()
