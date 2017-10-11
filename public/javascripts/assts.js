@@ -3,8 +3,8 @@ $( document ).ready(function() {
 
 
 
- $.getJSON('/api/v1/assts', {"usersId": '1'}).then( (data) => {
-  console.log('get assts ', data)
+ $.getJSON('/api/v1/assts', {"usersId": 5}).then( (data) => {
+  console.log('get method assts data ', data)
   let tbody = $('#assignments tbody')
   data.forEach( (item) => {
   tbody.append($(`<tr>
