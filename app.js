@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', index)
 app.use('/users', users)
 app.use('/dailyplan', dailyplan)
+app.use('/assts', assts)
 app.use('/api/v1/dailyplan', apidp)
 app.use('/api/v1/assts', apiassts)
 
