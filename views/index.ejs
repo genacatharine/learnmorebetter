@@ -2,19 +2,63 @@
 <html>
 <head>
   <% include ./partials/head.ejs %>
-  <script src="../javascripts/helps.js"></script>
+  <script src="../javascripts/index.js"></script>
+
 </head>
 <body>
   <main>
     <% include ./partials/nav.ejs %>
-      <div class="container">
+      <!-- <div class="container">
         <h1 class="center-align">Learn | More | Better.</h1>
         <div class="container col-xs-1" align="center">
           <div class="row" align="center">
             <img src="/images/galvanize_logo_orange_bg_200x200_360.jpg" class="circle">
           </div>
         </div>
+      </div> -->
+      <div class='row'>
+        <div class='widget daily col m6'>
+          <table class="dailyplanwidget table">
+            <thead>
+              <th>Time </th>
+              <th>Plan </th>
+              <th>Lesson </th>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+        <div class='widget userInfo col m6'>
+
+        </div>
       </div>
+      <div class='row'>
+        <div class='widget assts col m6'>
+          <table class="asstswidget table">
+            <thead>
+              <th>Assignment</th>
+              <th>Submit</th>
+              <th>Help</th>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+        <div class='widget helps col m6'>
+          <table class="helpswidget table">
+            <thead>
+              <th></th>
+              <th>Assignment</th>
+              <th>Students</th>
+              <th>Email</th>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
   </main>
   <script src="../javascripts/index.js"></script>
   <% include ./partials/footer.ejs %>
