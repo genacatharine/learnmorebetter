@@ -63,4 +63,6 @@ app.use(function(err, req, res, next) {
   res.render('error')
 })
 
+app.use(session({secret: 'g62'}))
+
 module.exports = app
