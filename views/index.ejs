@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <% include ./partials/head.ejs %>
-  </head>
-  <body>
+<head>
+  <% include ./partials/head.ejs %>
+</head>
+<body>
+  <main>
     <% include ./partials/nav.ejs %>
+<<<<<<< HEAD
     <div class="container" align="center">
       <h1><%= title %></h1>
       <div class="container col-xs-1" align="center">
@@ -20,12 +22,37 @@
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label>
               <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+=======
+      <div class="container">
+        <h1 class="center-align">Learn | More | Better.</h1>
+        <div class="container col-xs-1" align="center">
+          <div class="row" align="center">
+            <img src="/images/galvanize_logo_orange_bg_200x200_360.jpg" class="circle">
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="loginPassword" type="password" class="validate" required="required">
+              <label for="password" class="active">Password</label>
             </div>
-            <input type="button" class="login" value="Sign In" />
-          </form>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="loginEmail" type="email" class="validate" required="required">
+              <label for="email" class="active">Email</label>
+>>>>>>> frontend
+            </div>
+          </div>
         </div>
       </div>
+<<<<<<< HEAD
     </div>
   </body>
   <script src="../javascripts/index.js"></script>
+=======
+  </main>
+  <script src="../javascripts/index.js"></script>
+  <% include ./partials/footer.ejs %>
+</body>
+
+>>>>>>> frontend
 </html>

@@ -10,7 +10,6 @@ router.get('/', function(req, res, next) {
   res.render('./', { title: 'Learn.More.Better.', _layoutFile: 'layout.ejs'});
 });
 
-
 router.post('/', (req, res, next) => {
   console.log("Got incoming password");
   res.end("Got your password");

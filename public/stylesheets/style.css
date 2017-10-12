@@ -1,52 +1,148 @@
-/*body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#datepicker {
+  width: 50%;
 }
 
-a {
-  color: #00B7FF;
-}*/
 .ui-datepicker {
-  
+  background: #fff;
+  /* Old browsers */
+  background: #fff -moz-linear-gradient(top, #fcfcfc 0%, #fff 100%);
+  /* FF3.6+ */
+  background: #fff -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fcfcfc)), color-stop(100%, #fff));
+  /* Chrome,Safari4+ */
+  background: #fff -webkit-linear-gradient(top, #fcfcfc 0%, #fff 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: #fff -o-linear-gradient(top, #fcfcfc 0%, #fff 100%);
+  /* Opera11.10+ */
+  background: #fff -ms-linear-gradient(top, #fcfcfc 0%, #fff 100%);
+  /* IE10+ */
+  background: #fff linear-gradient(top, #fcfcfc 0%, #fff 100%);
+  /* W3C */
+  font-size: 12px;
+  font-family: 'PT Sans Caption', sans-serif;
+  padding: 15px;
+  /*border:2px solid #ccc;*/
+}
 
-background: #fff; /* Old browsers */
-background: #fff -moz-linear-gradient(top, #fcfcfc 0%, #fff 100%); /* FF3.6+ */
-background: #fff -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc)), color-stop(100%,#fff)); /* Chrome,Safari4+ */
-background: #fff -webkit-linear-gradient(top, #fcfcfc 0%, #fff 100%); /* Chrome10+,Safari5.1+ */
-background: #fff -o-linear-gradient(top, #fcfcfc 0%, #fff 100%); /* Opera11.10+ */
-background: #fff -ms-linear-gradient(top, #fcfcfc 0%, #fff 100%); /* IE10+ */
-background: #fff linear-gradient(top, #fcfcfc 0%, #fff 100%); /* W3C */
-font-size:11px;
-padding:10px;
-border:1px solid #ccc;
+#dailyPlan {
+  width: 50%;
 }
 
 .ui-datepicker table {
-width:500px;
-
+  /*width:100%;*/
 }
 
 .ui-datepicker table td {
-text-align:center;
-font-size: 20px;
+  text-align: center;
+  font-size: 20px;
 }
 
 .ui-datepicker a {
-cursor:pointer;
-text-decoration:none;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .ui-datepicker-prev {
+  font-size: 10px;
 }
 
 .ui-datepicker-next {
-float:right;
+  float: right;
+  font-size: 10px;
+}
+
+.parallax {
+  position: static;
 }
 
 .ui-datepicker-title {
-text-align: center;
-font-weight:bold;
+  font-family: 'PT Sans Caption', sans-serif;
+  text-align: center;
+  font-weight: bold;
 }
+
 .ui-datepicker-month, .ui-datepicker-year {
   font-size: 30px;
+}
+
+.nav-wrapper, .page-footer, .footer-copyright {
+  background-color: orange;
+  font-family: 'PT Sans Caption', sans-serif;
+  /*padding: 0;*/
+  /*margin: 0;*/
+}
+
+
+/*body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}*/
+
+th {
+  font-size: 2em;
+  font-family: 'PT Sans Caption', sans-serif;
+}
+
+.background {
+  width: 400px;
+  height: 500px;
+}
+
+#tabledailyplan {
+  /*background-image: url("../images/dailyplan3.jpg");*/
+  width: 400px;
+  height: 500px;
+  background-repeat: no-repeat;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: 'PT Sans Caption', sans-serif;
+  /*margin-top: 10px;*/
+  /*width: 50%;*/
+}
+
+
+/*main {
+
+  flex: 1 0 auto;
+}*/
+
+h1 {
+  /*font-family: helvetica;*/
+  font-weight: bold;
+  font-family: 'PT Sans Caption', sans-serif;
+}
+
+.brand-logo {
+  margin-left: 40px;
+  color: black;
+  font-family: 'PT Sans Caption', sans-serif;
+}
+
+.container {
+  /*flex-direction: row*/
+}
+
+#datepickerandtable {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+#helps {
+
 }
