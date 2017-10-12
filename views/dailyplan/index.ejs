@@ -3,37 +3,25 @@
 <html>
   <head>
     <% include ../partials/head.ejs %>
-
   </head>
   <body>
-
-
     <% include ../partials/nav.ejs %>
     <% include ../partials/functions.ejs %>
+    <div class="container" id="datepickerandtable">
 <div id="datepicker" class="chicken"></div>
-    <table id="dailyPlan" class="table">
+<div id="tabledailyplan">
+    <table id="dailyPlan" class="table" class="striped" class="responsive-table" class="centered" style="width:400px;height:500px;" class="background">
       <thead>
-        <th>Time</th>
-        <th>Plan</th>
-        <th>Lesson Info</th>
+        <th>Time </th>
+        <th>Plan </th>
+        <th>Lesson </th>
       </thead>
       <tbody>
       </tbody>
     </table>
+  </div>
 
-
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script
-    src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
-
-    crossorigin="anonymous"></script>
-    <script src="../javascripts/dailyplan.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-=======
-    crossorigin="anonymous"></script> -->
-
-    <!-- <script src="../javascripts/functions.js" charset="utf-8"></script> -->
+</div>
 
  </body>
 </html>

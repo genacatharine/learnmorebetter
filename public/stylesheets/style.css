@@ -6,8 +6,12 @@
 a {
   color: #00B7FF;
 }*/
-.ui-datepicker {
 
+
+#datepicker {
+width:50%;
+}
+.ui-datepicker {
 
 background: #fff; /* Old browsers */
 background: #fff -moz-linear-gradient(top, #fcfcfc 0%, #fff 100%); /* FF3.6+ */
@@ -16,13 +20,16 @@ background: #fff -webkit-linear-gradient(top, #fcfcfc 0%, #fff 100%); /* Chrome1
 background: #fff -o-linear-gradient(top, #fcfcfc 0%, #fff 100%); /* Opera11.10+ */
 background: #fff -ms-linear-gradient(top, #fcfcfc 0%, #fff 100%); /* IE10+ */
 background: #fff linear-gradient(top, #fcfcfc 0%, #fff 100%); /* W3C */
-font-size:11px;
-padding:10px;
-border:1px solid #ccc;
-}
+font-size:12px;
+padding:15px;
+/*border:2px solid #ccc;*/
 
+}
+#dailyPlan {
+  width: 50%;
+}
 .ui-datepicker table {
-width:500px;
+/*width:100%;*/
 
 }
 
@@ -50,6 +57,63 @@ font-weight:bold;
 .ui-datepicker-month, .ui-datepicker-year {
   font-size: 30px;
 }
-.nav-wrapper {
+.nav-wrapper, .page-footer, .footer-copyright {
   background-color: orange;
+  font-family: helvetica;
+}
+/*body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}*/
+
+th {
+  font-size: 2em;
+  font-family: helvetica;
+}
+
+.background {
+  width:400px;
+  height:500px;
+
+}
+
+#tabledailyplan {
+  background-image: url("../images/dailyplan3.jpg");
+  width:400px;
+  height:500px;
+  background-repeat: no-repeat;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  /*margin-top: 10px;*/
+  /*width: 50%;*/
+}
+/*main {
+
+  flex: 1 0 auto;
+}*/
+h1 {
+  font-family: helvetica;
+  font-weight: bold;
+}
+.brand-logo {
+  margin-left: 40px;
+  color: black;
+
+}
+.container {
+
+  /*flex-direction: row*/
+}
+
+
+#datepickerandtable {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
 }
