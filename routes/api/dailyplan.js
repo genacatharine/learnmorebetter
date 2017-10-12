@@ -3,18 +3,22 @@ var router = express.Router()
 const knex = require('../../knex')
 const boom = require('boom')
 const bcrypt = require('bcrypt')
-// var date
+var date
 
 router.get('/', (req, res, next) => {
 
   if (!req.query.date) {
-    knex('dailyplans')
-      .select('*')
-      .then((plans) => {
-        res.send(plans)
-      }).catch((err) => next(err))
-  } else {
+  //   knex('dailyplans')
+  //     .select('*')
+  //     .then((plans) => {
+  //       res.send(plans)
+  //     }).catch((err) => next(err))
+  // }
+  date = Date.now()
+}
+  else {
     date = req.query.date
+  }
     knex('dailyplans')
       .where('dailyplans.date', `${date}`)
       .innerJoin("dailyplans_events", "dailyplans_events.dailyplan_id", "dailyplans.id")
@@ -22,7 +26,7 @@ router.get('/', (req, res, next) => {
       .then((plan) => {
       res.send(plan)
     }).catch((err) => next(err))
-  }
+  
 })
 
 router.post('/', (res, req, next) => {
