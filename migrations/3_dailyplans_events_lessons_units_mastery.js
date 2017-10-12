@@ -11,7 +11,7 @@ exports.up = (knex, Promise) => {
       .onDelete("CASCADE");
     table.time("event_time").notNullable().defaultTo(knex.fn.now());
     table.varchar("plan", 255);
-    table.integer("lesson_id").defaultTo(0);
+    table.integer("unit_id");
     table.timestamps(true, true);
     }),
     knex.schema.createTable("lessons", (table) => {

@@ -5,7 +5,8 @@ const boom = require('boom')
 const bcrypt = require('bcrypt')
 
 router.get('/', function(req, res, next) {
-  res.render('./dailyplan/', {date:req.params.date});
+
+  res.render('./dailyplan/');
 });
 
 module.exports = router;

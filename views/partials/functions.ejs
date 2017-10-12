@@ -8,20 +8,19 @@
           let tbody = $('#dailyPlan tbody')
           $(tbody).empty()
           data.forEach((item) => {
-            tbody.append($(`<tr>
-            <td>${item.time}</td>
-            <td>${item.plan}</td>
-            <td><a href="${item.lessonLink}">${item.lesson}</a></td>
-            </tr>`))
+            if (!item.unit) {
+              item.unit=''
+              item.unitLink=''
+            }
+              tbody.append($(`<tr>
+              <td>${item.time}</td>
+              <td>${item.plan}</td>
+              <td><a href="${item.unitLink}">${item.unit}</a></td>
+              </tr>`))
           })
         })
       }
     })
   })
 
-  // <!-- $('td[data-handler="selectDay"]').click(function){
-  //   console.log(this.date)
-  // } )
-  // <!-- $('td[data-handler="selectDay"]').click(function){
-  //   console.log(this.date)
 </script>
