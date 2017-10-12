@@ -89,14 +89,14 @@ th {
 }
 
 #tabledailyplan {
-  background-image: url("../images/dailyplan3.jpg");
+  /*background-image: url("../images/dailyplan3.jpg");*/
   width: 400px;
   height: 500px;
   background-repeat: no-repeat;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 5px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   font-family: 'PT Sans Caption', sans-serif;
   /*margin-top: 10px;*/
