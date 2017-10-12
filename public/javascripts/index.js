@@ -11,30 +11,29 @@ $(document).ready(() => {
  //    $.post("/", loginData)
  //      .done((response) => console.log(response), "json")
  //  });
-  let now = new Date(Date.now())
-  console.log(now)
+ var d = new Date();
+ var month = d.getUTCMonth() + 1; //months from 1-12
+ var day = d.getUTCDate();
+ var year = d.getUTCFullYear();
+ d = month + "/" + day + "/" + year;
 
 
    $.getJSON('/api/v1/dailyplan', {
-     "date": 2017-10-02
+     date: d
    }).then((data) => {
+     console.log('data from daily ',data)
      let tbody = $('.dailyplanwidget tbody')
      $(tbody).empty()
      data.forEach((item) => {
-       if(item.lesson){
-       tbody.append($(`<tr>
-       <td>${item.time}</td>
-       <td>${item.plan}</td>
-       <td><a href="${item.lessonLink}">${item.lesson}</a></td>
-       </tr>`))
+       if (!item.unit) {
+         item.unit=''
+         item.unitLink=''
        }
-       else {
          tbody.append($(`<tr>
          <td>${item.time}</td>
          <td>${item.plan}</td>
-         <td></td>
+         <td><a href="${item.unitLink}">${item.unit}</a></td>
          </tr>`))
-       }
      })
    })
 
