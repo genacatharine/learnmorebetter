@@ -7,6 +7,9 @@ var bodyParser = require('body-parser')
 
 var app = express()
 
+var cookieParser = require('cookie-parser');
+
+
 var index = require('./routes/index')
 let login = require('./routes/login')
 let register = require('./routes/register')
@@ -40,7 +43,7 @@ app.use('/helps', helps)
 app.use('/api/v1/dailyplan', apidp)
 app.use('/api/v1/assts', apiassts)
 app.use('/api/v1/helps', apihelps)
-
+app.use(cookieParser());
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found')
