@@ -8,18 +8,15 @@ var bodyParser = require('body-parser')
 var app = express()
 
 var index = require('./routes/index')
-
+let login = require('./routes/login')
+let register = require('./routes/register')
 var dailyplan = require('./routes/dailyplan')
 var assts = require('./routes/assts')
 var helps = require('./routes/helps')
 var apidp = require('./routes/api/dailyplan')
 var apiassts = require('./routes/api/assts')
-
 var users = require('./routes/users');
-
 var apihelps = require('./routes/api/helps')
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -34,6 +31,8 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', index)
+app.use('/login', login)
+app.use('/register', register)
 app.use('/users', users)
 app.use('/dailyplan', dailyplan)
 app.use('/assts', assts)
@@ -57,6 +56,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500)
+  console.log("Trying to Render");
   res.render('error')
 })
 

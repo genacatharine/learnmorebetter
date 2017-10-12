@@ -1,18 +1,18 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
+let JWT_KEY = process.env.JWT_KEY;
 let router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  bcrypt.hash("learnmorebetter", 10)
-    .then(console.log, console.error);
-  res.render('./', { title: 'Learn.More.Better.', _layoutFile: 'layout.ejs'});
+router.get('/', (req, res, next) => {
+  jwt.verify(req.cookies.token, JWT_KEY, (err, payload) => {
+    if (err) {
+      res.redirect("./login")
+    } else {
+      res.render('./', { title: 'Learn.More.Better.', _layoutFile: 'layout.ejs'});
+    }
+  });
 });
-
-router.post('/', (req, res, next) => {
-  console.log("Got incoming password");
-  res.end("Got your password");
-})
 
 module.exports = router;
