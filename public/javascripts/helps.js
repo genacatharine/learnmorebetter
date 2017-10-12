@@ -3,27 +3,28 @@ $(document).ready(function() {
   $.getJSON('/api/v1/helps', {
     userId: 5
   }).then((data) => {
-    console.log('json get query for helps resulted in ', data)
     let tbody = $('#helps tbody')
-    data.forEach((item) => {
+    for (item in data) {
       tbody.append($(`<tr>
-        <td>${item.title}</td>
+        <td>${item}</td>
         <td></td>
         <td></td>
-        <td><button class='remove btn' data-id='${item.id}'>Remove</button></td>
-        </tr>
-        <tr>
-        <td></td>
-        <td>${item.firstName} ${item.lastName}</td>
-        <td>${item.email}</td>
+        <td><button class='remove btn' data-asst='${item}'>Remove</button></td>
         </tr>`))
-    })
+        data[item].forEach( (user) => {
+          tbody.append($(`
+          <tr>
+          <td></td>
+          <td>${user.first} ${user.last}</td>
+          <td>${user.email}</td>
+          </tr>`))
+        })
+    }
   }).done(()=> {
     $('.remove').click( (e) => {
-      let id = $(e.target).data('id')
-      console.log('remove click help id ', id)
-      if (id) {
-        $.ajax({url: `/api/v1/helps/${id}`, method: "DELETE", dataType: 'json'}).done(data => {
+      let asst = $(e.target).data('asst')
+      if (asst) {
+        $.ajax({url: `/api/v1/helps/remove?asst=${asst}`, method: "DELETE", dataType: 'json'}).done(data => {
           $(e.target).closest('tr').hide()
           console.log("deleted data", data);
         })
