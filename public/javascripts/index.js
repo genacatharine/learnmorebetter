@@ -1,4 +1,5 @@
 $( document ).ready(() => {
+  $('.parallax').parallax();
   $(".login").click(() => {
     let loginData = JSON.stringify({
     email: $('#loginEmail').val(),

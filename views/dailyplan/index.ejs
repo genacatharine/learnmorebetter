@@ -1,27 +1,27 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <% include ../partials/head.ejs %>
-  </head>
-  <body>
+<head>
+  <% include ../partials/head.ejs %>
+  <% include ../partials/functions.ejs %>
+</head>
+<body>
+  <main>
     <% include ../partials/nav.ejs %>
-    <% include ../partials/functions.ejs %>
-    <div class="container" id="datepickerandtable">
-<div id="datepicker" class="chicken"></div>
-<div id="tabledailyplan">
-    <table id="dailyPlan" class="table" class="striped" class="responsive-table" class="centered" style="width:400px;height:500px;" class="background">
-      <thead>
-        <th>Time </th>
-        <th>Plan </th>
-        <th>Lesson </th>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-  </div>
-
-</div>
-
- </body>
+        <div class="container" id="datepickerandtable">
+          <div id="datepicker" class="chicken"></div>
+          <div id="tabledailyplan">
+            <table id="dailyPlan" class="table" class="striped" class="responsive-table" class="centered" style="width:400px;height:500px;" class="background">
+              <thead>
+                <th>Time </th>
+                <th>Plan </th>
+                <th>Lesson </th>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+  </main>
+  <% include ../partials/footer.ejs %>
+</body>
 </html>
