@@ -13,7 +13,7 @@ router.post('/:id', (req, res, next) => {
     .insert({'user_id': 5, 'assignment_id': req.params.id}, '*')
     .then( (inserted) => {
       console.log(inserted)
-      res.send(inserted.id)
+      res.send(inserted)
     })
 })
 
