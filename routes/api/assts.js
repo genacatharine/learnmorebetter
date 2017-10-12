@@ -7,8 +7,9 @@ const bcrypt = require('bcrypt')
 
 router.get('/', (req, res, next) => {
   let id = req.query.userId
+  id = 5
   knex('assignments')
-    .select('assignments.title', 'assignments.location_url as locationUrl', 'assignments.submit_url as submitUrl', 'units.title as unit', 'units.location_url as unitUrl', 'users_assignments.grade')
+    .select('assignments.title', 'assignments.location_url as locationUrl', 'assignments.submit_url as submitUrl', 'units.title as unit', 'units.location_url as unitUrl', 'users_assignments.grade', 'assignments.id')
     .innerJoin('units', 'assignments.unit_id', 'units.id')
     .innerJoin('users_assignments', 'users_assignments.assignment_id', 'assignments.id')
     .where('users_assignments.user_id', id)

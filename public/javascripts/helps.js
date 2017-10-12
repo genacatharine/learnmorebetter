@@ -20,14 +20,15 @@ $(document).ready(function() {
 
     })
   })
-})
+
 
 $('#remove').click( (e) => {
   let id = $(e.target).data('id')
+  console.log('remove click help id ', id)
   if (id) {
     $.ajax({url: `/api/v1/helps/${id}`, method: "DELETE", dataType: 'json'}).done(data => {
       $(e.target).closest('tr').hide()
-      console.log("deleted ", data);
+      console.log("deleted data", data);
     })
   }
 })

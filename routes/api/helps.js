@@ -54,7 +54,6 @@ router.get('/', (req, res, next) => {
     }).catch( (err) => next(err))
 })
 
-// select a.title, u.first_name as firstName, u.last_name as lastName, u.email from assignments a inner join helps on (a.id=helps.assignment_id) inner join users u on (helps.user_id=u.id) where (helps.user_id=5);
 
 router.post('/:id', (req, res, next) => {
   console.log('posting route')
