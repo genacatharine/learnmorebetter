@@ -3,17 +3,16 @@ $(document).ready(function() {
   $.getJSON('/api/v1/helps', {
     userId: 5
   }).then((data) => {
-    let tbody = $('#helps tbody')
+    let tbody = $('#students tbody')
+    let ass = $('#helpAssts tbody')
     for (item in data) {
       tbody.append($(`<tr>
-        <td>${item}</td>
-        <td></td>
-        <td></td>
         <td><button class='remove btn' data-asst='${item}'>Remove</button></td>
+        <td>${item}</td>
         </tr>`))
         data[item].forEach( (user) => {
-          tbody.append($(`
-          <tr>
+          tbody.append($(`<tr>
+          <td></td>
           <td></td>
           <td>${user.first} ${user.last}</td>
           <td>${user.email}</td>
@@ -24,7 +23,7 @@ $(document).ready(function() {
     $('.remove').click( (e) => {
       let asst = $(e.target).data('asst')
       if (asst) {
-        $.ajax({url: `/api/v1/helps/remove?asst=${asst}`, method: "DELETE", dataType: 'json'}).done(data => {
+        $.ajax({url: `/helps/remove?asst=${asst}`, method: "DELETE", dataType: 'json'}).done(data => {
           $(e.target).closest('tr').hide()
           console.log("deleted data", data);
         })

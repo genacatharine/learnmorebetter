@@ -17,19 +17,26 @@ router.post('/:id', (req, res, next) => {
 
 router.delete('/remove', (req, res, next) => {
   let asst = req.query.asst
-  console.log('asst ', asst)
   knex('assignments')
-    .where('title', 'like', '%asst%')
-    .select('id')
-    .then( (id) => {
-      console.log(id)
-      knex('helps')
-        .where('assignment_id', id)
-        .andWhere('user_id', 5)
+    .where('title', asst)
+    .first()
+    .then(({ id }) => {
+      console.log('id where title is matched ', id)
+    console.log(typeof id)
+      return knex('helps')
         .del()
+        .where('assignment_id', id)
+        //.andWhere('user_id', 5)
     }).then( (deleted) => {
-      res.send(200)
+      console.log('HELLO DANAH', deleted)
+      res.send(deleted)
     }).catch( (err) => next(err))
+
+  // knex('helps')
+  //   .del()
+  //   .where('assignment_id', '=', 2)
+  //   .then((x) => console.log('HELLO INDIE BAND', x))
+  //   .catch((x) => console.log('CRAP', x))
 
 })
 
