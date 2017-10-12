@@ -18,10 +18,9 @@ $(document).ready(function() {
   }).done( () => {
 
   $('.helpMe').click( (e) => {
-
     let id = $(e.target).data('id') //id is the assignment id to be added
     $.post(`./helps/${id}`).done((data) => {
-      
+
     })
   })
 })

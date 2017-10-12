@@ -21,23 +21,13 @@ router.delete('/remove', (req, res, next) => {
     .where('title', asst)
     .first()
     .then(({ id }) => {
-      console.log('id where title is matched ', id)
-    console.log(typeof id)
       return knex('helps')
         .del()
         .where('assignment_id', id)
-        //.andWhere('user_id', 5)
-    }).then( (deleted) => {
-      console.log('HELLO DANAH', deleted)
-      res.send(deleted)
+        .andWhere('user_id', 5)
+    }).then( () => {
+      res.sendStatus(200)
     }).catch( (err) => next(err))
-
-  // knex('helps')
-  //   .del()
-  //   .where('assignment_id', '=', 2)
-  //   .then((x) => console.log('HELLO INDIE BAND', x))
-  //   .catch((x) => console.log('CRAP', x))
-
 })
 
 module.exports = router;
