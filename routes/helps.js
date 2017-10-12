@@ -8,25 +8,29 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/:id', (req, res, next) => {
-  console.log('posting route')
   knex('helps')
     .insert({'user_id': 5, 'assignment_id': req.params.id}, '*')
     .then( (inserted) => {
-      console.log(inserted)
       res.send(inserted)
     })
 })
 
-router.delete('/:id', (req, res, next) => {
-  console.log('deleting route')
-  let id = req.params.id
-  knex('helps')
-    .where('id', id)
-    .select('*')
-    .del()
-    .then( (deleted) => {
-      res.send(id)
-    })
+router.delete('/remove', (req, res, next) => {
+  let asst = req.query.asst
+  console.log('asst ', asst)
+  knex('assignments')
+    .where('title', 'like', '%asst%')
+    .select('id')
+    .then( (id) => {
+      console.log(id)
+      knex('helps')
+        .where('assignment_id', id)
+        .andWhere('user_id', 5)
+        .del()
+    }).then( (deleted) => {
+      res.send(200)
+    }).catch( (err) => next(err))
+
 })
 
 module.exports = router;
