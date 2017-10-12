@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
   let newHelp = {}
 
 
-
+  //
   // knex('assignments')
   //   .innerJoin('helps', 'assignments.id', 'helps.assignment_id')
   //   .innerJoin('users', 'users.id', 'helps.user_id')
@@ -30,6 +30,8 @@ router.get('/', (req, res, next) => {
   .innerJoin('users', 'helps.user_id', 'users.id')
   .whereIn('assignment_id', subquery)
   .whereNot('users.id', id)
+
+
 
     //   assignments.forEach( (id) => {
     //     knex('users')

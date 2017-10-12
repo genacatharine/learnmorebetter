@@ -10,25 +10,24 @@ $(document).ready(function() {
         <td>${item.title}</td>
         <td></td>
         <td></td>
-        <td><button id='remove' data-id='${item.id}'>Remove</button></td>
+        <td><button class='remove btn' data-id='${item.id}'>Remove</button></td>
         </tr>
         <tr>
         <td></td>
         <td>${item.firstName} ${item.lastName}</td>
         <td>${item.email}</td>
         </tr>`))
-
+    })
+  }).done(()=> {
+    $('.remove').click( (e) => {
+      let id = $(e.target).data('id')
+      console.log('remove click help id ', id)
+      if (id) {
+        $.ajax({url: `/api/v1/helps/${id}`, method: "DELETE", dataType: 'json'}).done(data => {
+          $(e.target).closest('tr').hide()
+          console.log("deleted data", data);
+        })
+      }
     })
   })
-
-
-$('#remove').click( (e) => {
-  let id = $(e.target).data('id')
-  console.log('remove click help id ', id)
-  if (id) {
-    $.ajax({url: `/api/v1/helps/${id}`, method: "DELETE", dataType: 'json'}).done(data => {
-      $(e.target).closest('tr').hide()
-      console.log("deleted data", data);
-    })
-  }
 })
