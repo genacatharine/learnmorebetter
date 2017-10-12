@@ -64,7 +64,11 @@ exports.seed = (knex, Promise) => {
           hashed_password: "",
           is_instructor: false,
           is_enabled: true
-        },
-      ]);
+        }
+
+      ])
+      .then(() => {
+          return knex.raw("SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));")
     });
+  });
 };
