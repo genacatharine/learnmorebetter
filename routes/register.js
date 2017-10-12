@@ -4,13 +4,13 @@ const bcrypt = require('bcrypt');
 let router = express.Router();
 
 /* GET home page. */
-router.get('/', (req, res, next) => {
+router.get('/register', (req, res, next) => {
   bcrypt.hash("learnmorebetter", 10)
     .then(console.log, console.error);
   res.render('./', { title: 'Learn.More.Better.', _layoutFile: 'layout.ejs'});
 });
 
-router.post('/', (req, res, next) => {
+router.post('/register', (req, res, next) => {
   console.log("Got incoming password");
   res.end("Got your password");
 })
