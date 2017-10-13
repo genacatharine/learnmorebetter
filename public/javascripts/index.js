@@ -21,7 +21,6 @@ $(document).ready(() => {
    $.getJSON('/api/v1/dailyplan', {
      date: d
    }).then((data) => {
-     console.log('data from daily ',data)
      let tbody = $('.dailyplanwidget tbody')
      $(tbody).empty()
      data.forEach((item) => {
