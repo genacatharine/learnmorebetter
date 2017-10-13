@@ -27,11 +27,18 @@ router.post('/', (req, res, next) => {
                 hashed_password: hash_pass //password that just got hashed
                 },'*')
   })
-  .then((=>{
-    res.cookie ()
-  })
-  .then(() => {
-    res.send({ redirectURL: '/'});
+
+  .then((users) => {
+
+
+      let token=jwt.sign(users[0].id, 'g62')
+
+      console.log('token', token)
+
+    res.cookie('token', token, {httpOnly: true})
+    
+    res.send({ redirectURL: './'});
+  // })
 
   })
   .catch((err) => {
