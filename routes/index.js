@@ -3,11 +3,12 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const bodyparser = require('body-parser')
 
-let JWT_KEY = process.env.JWT_KEY;
+let SECRET = process.env.JWT_KEY;
 let router = express.Router();
 
 router.get('/', (req, res, next) => {
-  jwt.verify(req.cookies.token, 'g62', (err, payload) => {
+  jwt.verify(req.cookies.token, SECRET, (err, payload) => {
+    console.log('cookie', req.cookies.token);
     if (!req.cookies.token) {
 
       res.redirect("./register")

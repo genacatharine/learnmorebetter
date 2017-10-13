@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt= require('jsonwebtoken')
 const knex= require('../knex')
+const SECRET= process.env.JWT_KEY
 
 let router = express.Router();
 
@@ -16,27 +17,24 @@ router.post('/', (req, res, next) => {
 
   bcrypt.hash(password, 10)
     .then((hash_pass) => {
-      return knex('users')
+       return knex('users')
               .insert({
-                first_name: 'adam',
-                middle_initial: '.',
-                last_name: 'maxwell',
+                first_name: firstName,
+                last_name: lastName,
                 email: email,
                 is_instructor: false,
                 is_enabled: true,
                 hashed_password: hash_pass //password that just got hashed
-                },'*')
+                })
+                .returning('id')
+                // .first()
   })
 
-  .then((users) => {
-
-
-      let token=jwt.sign(users[0].id, 'g62')
-
-      console.log('token', token)
-
+  .then((userId) => {
+    // console.log('users', users)
+    let token=jwt.sign({id:userId}, SECRET)
     res.cookie('token', token, {httpOnly: true})
-    
+    console.log('user', user)
     res.send({ redirectURL: './'});
   // })
 
