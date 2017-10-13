@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 router.post('/:id', (req, res, next) => {
   knex('helps')
     .insert({
-      'user_id': 5,
+      'user_id': req.cookies.token.userId,
       'assignment_id': req.params.id
     }, '*')
     .then((inserted) => {
@@ -40,7 +40,7 @@ router.delete('/remove', (req, res, next) => {
       return knex('helps')
         .del()
         .where('assignment_id', id)
-        .andWhere('user_id', 5)
+        .andWhere('user_id', req.cookies.token.userId)
     }).then(() => {
       res.sendStatus(200)
     }).catch((err) => next(err))

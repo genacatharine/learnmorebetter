@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt')
 
 router.get('/', (req, res, next) => {
   res.clearCookie('token')
+  res.redirect('./')
 })
 
 module.exports = router;
