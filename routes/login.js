@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
-const SECRET = process.env.JWT_KEY
+var SECRET = process.env.JWT_KEY
 const knex = require('../knex')
 const boom = require('boom')
 
@@ -27,26 +27,31 @@ router.post("/", (req, res, next) => {
     .then((data) => {
       if (!data) {
         console.log('no rows! no user!')
-        return next(boom.badRequest('Bad email or password'))
+        next(boom.badRequest('Bad email or password'))
       }
-      if (bcrypt.compare(req.body.password, data.hashed_password)) {
-        let token = jwt.sign({
-          userId: data.id
-        }, SECRET)
-        res.cookie('token', token, {
-          httpOnly: true
-        })
-        res.send({
-          redirectURL: './'
-        })
-      } else {
-        return next(boom.badRequest('Bad password'))
-      }
-    })
-    .catch((err) => {
-      next(err)
-    })
+      bcrypt.compare(req.body.password, data.hashed_password).then((res) => {
+          if (res) {
+            console.log('secret ', SECRET)
+            let token = jwt.sign({
+              userId: data.id
+            }, SECRET)
+            console.log('token from successful login ', token)
+            res.cookie('token', token, {
+              httpOnly: true
+            })
+            res.send({
+              redirectURL: './'
+            })
+          } else {
+            next(boom.badRequest('Bad password'))
+          }
 
-})
+        })
+        .catch((err) => {
+          next(err)
+        })
 
-module.exports = router;
+    })
+  })
+
+      module.exports = router;
