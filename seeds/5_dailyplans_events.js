@@ -29,6 +29,81 @@ exports.seed = (knex, Promise) => {
           event_time: "16:40:00",
           plan: "Stand Down"
         }
+        {
+          id: 1,
+          dailyplan_id: 23,
+          event_time: "09:00:00",
+          plan: "Stand Up & Challenge Warm Up"
+        },
+        {
+          id: 2,
+          dailyplan_id: 23,
+          event_time: "10:00:00",
+          plan: "Lesson : Promises",
+          unit_id: 15
+        },
+        {
+          id: 3,
+          dailyplan_id: 23,
+          event_time: "12:00:00",
+          plan: "Lunch"
+        },
+        {
+          id: 4,
+          dailyplan_id: 23,
+          event_time: "16:40:00",
+          plan: "Stand Down"
+        }
+        {
+          id: 1,
+          dailyplan_id: 24,
+          event_time: "09:00:00",
+          plan: "Stand Up & Challenge Warm Up"
+        },
+        {
+          id: 2,
+          dailyplan_id: 24,
+          event_time: "10:00:00",
+          plan: "Lesson : Promises",
+          unit_id: 15
+        },
+        {
+          id: 3,
+          dailyplan_id: 24,
+          event_time: "12:00:00",
+          plan: "Lunch"
+        },
+        {
+          id: 4,
+          dailyplan_id: 24,
+          event_time: "16:40:00",
+          plan: "Stand Down"
+        }
+        {
+          id: 1,
+          dailyplan_id: 25,
+          event_time: "09:00:00",
+          plan: "Stand Up & Challenge Warm Up"
+        },
+        {
+          id: 2,
+          dailyplan_id: 25,
+          event_time: "10:00:00",
+          plan: "Lesson : Promises",
+          unit_id: 15
+        },
+        {
+          id: 3,
+          dailyplan_id: 25,
+          event_time: "12:00:00",
+          plan: "Lunch"
+        },
+        {
+          id: 4,
+          dailyplan_id: 25,
+          event_time: "16:40:00",
+          plan: "Stand Down"
+        }
       ]);
     });
 };

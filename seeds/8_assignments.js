@@ -152,8 +152,8 @@ exports.seed = (knex, Promise) => {
           id: 17,
           title: "Galvanize Bookshelf",
           description: "none",
-          location_url: "www.assignment.com",
-          submit_url: "www.submit.com",
+          location_url: "https://github.com/gSchool/galvanize-bookshelf",
+          submit_url: "https://learn.galvanize.com/cohorts/236/exercises/10128",
           unit_id: 17,
           mastery_id: 1
         },
@@ -161,8 +161,8 @@ exports.seed = (knex, Promise) => {
           id: 18,
           title: "Server Side Testing",
           description: "none",
-          location_url: "www.assignment.com",
-          submit_url: "www.submit.com",
+          location_url: "https://github.com/gSchool/server-testing-assessment",
+          submit_url: "https://learn.galvanize.com/cohorts/236/exercises/10133",
           unit_id: 18,
           mastery_id: 1
         },
