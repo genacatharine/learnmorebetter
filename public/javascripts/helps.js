@@ -16,6 +16,19 @@ $(document).ready(function() {
           </tr>`))
         })
     }
+    let dash = $('.helpswidget tbody')
+    for (item in data) {
+      dash.append($(`<tr>
+        <td>${item}</td>
+        </tr>`))
+        data[item].forEach( (user) => {
+          dash.append($(`<tr>
+          <td></td>
+          <td>${user.first} ${user.last}</td>
+          <td>${user.email}</td>
+          </tr>`))
+        })
+    }
   }).done(()=> {
     $('.remove').click( (e) => {
       let asst = $(e.target).data('asst')

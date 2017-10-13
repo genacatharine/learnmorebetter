@@ -40,7 +40,7 @@ $(document).ready(() => {
    userId: 4
  }).then((data) => {
    console.log('getting assignments widget')
-   console.log('userId was ', userId)
+
    console.log('data from get ', data)
    let tbody = $('.asstswidget tbody')
    data.forEach((item) => {
@@ -58,7 +58,7 @@ $(document).ready(() => {
    userId: 4
  }).then((data) => {
    console.log('getting helps widget')
-   console.log('userId was ', userId)
+
    console.log('data from get ', data)
    let tbody = $('.helpswidget tbody')
    for (item in data) {
@@ -69,7 +69,7 @@ $(document).ready(() => {
          tbody.append($(`<tr>
          <td></td>
          <td>${user.first} ${user.last}</td>
-         <td>${user.email}</td>
+  
          </tr>`))
        })
    }

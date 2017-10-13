@@ -146,3 +146,10 @@ main {
 #helps {
 
 }
+/*.widget {
+  border:2px solid black;
+}*/
+#dash {
+  max-width:1200px
+
+}
