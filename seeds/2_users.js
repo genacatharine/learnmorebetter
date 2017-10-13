@@ -11,7 +11,7 @@ exports.seed = (knex, Promise) => {
           middle_initial: "",
           last_name: "Quincy",
           email: "craig@craig.com",
-          hashed_password: "",
+          hashed_password: "$2a$10$3Z9bRM0jIxASTULhfmY8qu.8nmuKbQZ38zz.GBLuW9EMdjkAEiyGC",
           is_instructor: true,
           is_enabled: true
         },
@@ -21,7 +21,7 @@ exports.seed = (knex, Promise) => {
           middle_initial: "",
           last_name: "Silva",
           email: "pete@pete.com",
-          hashed_password: "",
+          hashed_password: "$2a$10$3Z9bRM0jIxASTULhfmY8qu.8nmuKbQZ38zz.GBLuW9EMdjkAEiyGC",
           is_instructor: true,
           is_enabled: true
         },
@@ -31,7 +31,7 @@ exports.seed = (knex, Promise) => {
           middle_initial: "",
           last_name: "Key",
           email: "alicia@alicia.com",
-          hashed_password: "",
+          hashed_password: "$2a$10$3Z9bRM0jIxASTULhfmY8qu.8nmuKbQZ38zz.GBLuW9EMdjkAEiyGC",
           is_instructor: true,
           is_enabled: true
         },
@@ -41,7 +41,7 @@ exports.seed = (knex, Promise) => {
           middle_initial: "",
           last_name: "Israel",
           email: "gena@gena.com",
-          hashed_password: "$2a$10$b5ZN4Jsr.xPdD7FswhRHf.r.GtcH/jBsIsGuDOrdV4YYceDCpdnLe",
+          hashed_password: "$2a$10$3Z9bRM0jIxASTULhfmY8qu.8nmuKbQZ38zz.GBLuW9EMdjkAEiyGC",
           is_instructor: false,
           is_enabled: true
         },
@@ -51,7 +51,7 @@ exports.seed = (knex, Promise) => {
           middle_initial: "",
           last_name: "Olivetree",
           email: "danah@danah.com",
-          hashed_password: "",
+          hashed_password: "$2a$10$3Z9bRM0jIxASTULhfmY8qu.8nmuKbQZ38zz.GBLuW9EMdjkAEiyGC",
           is_instructor: false,
           is_enabled: true
         },
@@ -61,7 +61,7 @@ exports.seed = (knex, Promise) => {
           middle_initial: "J",
           last_name: "Burns",
           email: "stevenjburns@msn.com",
-          hashed_password: "",
+          hashed_password: "$2a$10$3Z9bRM0jIxASTULhfmY8qu.8nmuKbQZ38zz.GBLuW9EMdjkAEiyGC",
           is_instructor: false,
           is_enabled: true
         }

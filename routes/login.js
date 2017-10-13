@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 var SECRET = process.env.JWT_KEY
 const knex = require('../knex')
 const boom = require('boom')
+const cookieParser = require('cookie-parser')
 
 let router = express.Router();
 
@@ -27,20 +28,18 @@ router.post("/", (req, res, next) => {
         console.log('no rows! no user!')
         next(boom.badRequest('Bad email or password'))
       }
-      bcrypt.compare(req.body.password, data.hashed_password).then((res) => {
-          if (res) {
-            console.log('secret ', SECRET)
+      bcrypt.compare(req.body.password, data.hashed_password).then((rez) => {
+          if (rez) {
             let token = jwt.sign({
               userId: data.id
             }, SECRET)
             console.log('token from successful login ', token)
-            res.cookie('token', token, {
-              httpOnly: true
-            })
-            res.send({
+            console.log('res after send ', res)
+            res.cookie('token', token, {httpOnly:true}).send({
               redirectURL: './'
             })
-          } else {
+          }
+          else {
             next(boom.badRequest('Bad password'))
           }
         })
