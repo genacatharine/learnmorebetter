@@ -8,13 +8,15 @@ $("#loginbtn").click(()=> {
         email: $('#loginEmail').val(),
         password: $('#loginPassword').val()
       },
-      'success':function(data) { window.location = data.redirectURL },
-      'error':function(err){ console.log(err) }
+      'success':function(data) {
+        console.log('success')
+        window.location = data.redirectURL
+      },
+      'error':function(err){ console.log('error in ajax request ', err) }
 
     })
   })
   $('#registerbtn').click(() => {
     window.location='./register';
-
   })
 })
