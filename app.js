@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 var express = require('express')
 var path = require('path')
 //var favicon = require('serve-favicon')
@@ -20,6 +23,7 @@ var apidp = require('./routes/api/dailyplan')
 var apiassts = require('./routes/api/assts')
 var users = require('./routes/users');
 var apihelps = require('./routes/api/helps')
+var logout = require('./routes/logout')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -43,6 +47,7 @@ app.use('/helps', helps)
 app.use('/api/v1/dailyplan', apidp)
 app.use('/api/v1/assts', apiassts)
 app.use('/api/v1/helps', apihelps)
+app.use('/logout', logout)
 app.use(cookieParser());
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
