@@ -21,8 +21,8 @@ exports.seed = (knex, Promise) => {
         {id: 15, user_id: 7, assignment_id: 15, grade: 3},
         {id: 16, user_id: 7, assignment_id: 16, grade: 3},
         {id: 17, user_id: 7, assignment_id: 17, grade: 3},
-        {id: 18, user_id: 7, assignment_id: 18, grade: },
-        {id: 19, user_id: 7, assignment_id: 19, grade: },
+        {id: 18, user_id: 7, assignment_id: 18},
+        {id: 19, user_id: 7, assignment_id: 19},
 
 
       ]);

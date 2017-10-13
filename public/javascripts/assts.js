@@ -2,9 +2,9 @@ $(document).ready(function() {
 
 
   $.getJSON('/api/v1/assts', {
-    userId: 5
+    userId: req.cookies.token.userId
   }).then((data) => {
-    console.log('getting')
+    console.log('getting assignments')
     let tbody = $('#assignments tbody')
     data.forEach((item) => {
       tbody.append($(`<tr>
