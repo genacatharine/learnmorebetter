@@ -17,12 +17,13 @@ $('#registerbtn').click(()=>{
                   email: $('#registeremail').val(),
                   password: $('#registerpassword').val()
                 },
-                'success':function(data) { window.location = data.redirectURL },
+                'success':function(data) { window.location= data.redirectURL },
                 'error':function(err){ console.log(err) }
 
-              })
+
                 // 'cache':false
               })
 
 
       })
+    })

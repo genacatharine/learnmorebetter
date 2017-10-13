@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
     console.log('cookie', req.cookies.token);
     if (!req.cookies.token) {
 
-      res.redirect("./register")
+      res.redirect("./login")
     } else {
       console.log('im renderinggggg')
       res.render('./', { title: 'Learn.More.Better.', _layoutFile: 'layout.ejs'});
