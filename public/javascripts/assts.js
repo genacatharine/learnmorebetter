@@ -1,10 +1,8 @@
 $(document).ready(function() {
 
 
-  $.getJSON('/api/v1/assts', {
-    userId: req.cookies.token.userId
-  }).then((data) => {
-    console.log('getting assignments')
+  $.getJSON('/api/v1/assts').then((data) => {
+    console.log('getting assignments heres the data', data)
     let tbody = $('#assignments tbody')
     data.forEach((item) => {
       tbody.append($(`<tr>
@@ -18,7 +16,7 @@ $(document).ready(function() {
   }).done( () => {
 
   $('.helpMe').click( (e) => {
-    let id = $(e.target).data('id') //id is the assignment id to be added
+    let id = $(e.target).data('id') //asst id to be added
     $.post(`./helps/${id}`).done((data) => {
     })
   })

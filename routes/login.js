@@ -15,9 +15,7 @@ router.get("/", function(req, res, next) {
 })
 
 router.post("/", (req, res, next) => {
-  console.log(req.body)
   if (!req.body.email || !req.body.password) {
-    console.log('no email or password')
     return next(boom.badRequest('Please fill out both fields'))
   }
   knex('users')
@@ -25,7 +23,6 @@ router.post("/", (req, res, next) => {
     .first()
     .then((data) => {
       if (!data) {
-        console.log('no rows! no user!')
         next(boom.badRequest('Bad email or password'))
       }
       bcrypt.compare(req.body.password, data.hashed_password).then((rez) => {
@@ -33,8 +30,6 @@ router.post("/", (req, res, next) => {
             let token = jwt.sign({
               userId: data.id
             }, SECRET)
-            console.log('token from successful login ', token)
-            console.log('res after send ', res)
             res.cookie('token', token, {httpOnly:true}).send({
               redirectURL: './'
             })

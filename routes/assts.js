@@ -12,9 +12,8 @@ router.get('/', function(req, res, next) {
     if (!req.cookies.token) {
       res.redirect("./login")
     } else {
-      res.render('./assignments/', {
-        userId: req.cookies.token.userId
-      });
+      let userId =  payload.userId
+      res.render("./assignments/", {userId})
     }
   })
 });

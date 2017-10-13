@@ -37,7 +37,7 @@ $(document).ready(() => {
  })
 
  $.getJSON('/api/v1/assts', {
-   userId: req.cookies.token.userId
+   userId: 4
  }).then((data) => {
    console.log('getting assignments widget')
    console.log('userId was ', userId)
@@ -55,7 +55,7 @@ $(document).ready(() => {
  })
 
  $.getJSON('/api/v1/helps', {
-   userId: req.cookies.token.userId
+   userId: 4
  }).then((data) => {
    console.log('getting helps widget')
    console.log('userId was ', userId)

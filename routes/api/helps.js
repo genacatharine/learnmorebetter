@@ -6,8 +6,8 @@ const bcrypt = require('bcrypt')
 
 
 router.get('/', (req, res, next) => {
-let id = req.query.userId
-console.log('helps req.query.userId ', req.query.userId)
+let id = 4
+
 let helps = {}
 var subquery = knex.pluck('assignment_id').from('helps')
   .whereIn('user_id', id)

@@ -1,10 +1,7 @@
 $(document).ready(function() {
 
-  $.getJSON('/api/v1/helps', {
-    userId: 5
-  }).then((data) => {
+  $.getJSON('/api/v1/helps').then((data) => {
     let tbody = $('#students tbody')
-    let ass = $('#helpAssts tbody')
     for (item in data) {
       tbody.append($(`<tr>
         <td><button class='remove btn' data-asst='${item}'>Remove</button></td>
@@ -25,7 +22,6 @@ $(document).ready(function() {
       if (asst) {
         $.ajax({url: `/helps/remove?asst=${asst}`, method: "DELETE", dataType: 'json'}).done(data => {
           $(e.target).closest('tr').hide()
-          console.log("deleted data", data);
         })
       }
     })

@@ -11,8 +11,9 @@ router.get('/', function(req, res, next) {
     if (!req.cookies.token) {
       res.redirect("./login")
     } else {
+      let userId =  payload.userId
       res.render('./helps/', {
-        userId: req.cookies.token.userId
+        userId
       })
     }
   })
@@ -21,7 +22,7 @@ router.get('/', function(req, res, next) {
 router.post('/:id', (req, res, next) => {
   knex('helps')
     .insert({
-      'user_id': req.cookies.token.userId,
+      'user_id': 4, //
       'assignment_id': req.params.id
     }, '*')
     .then((inserted) => {
@@ -40,7 +41,7 @@ router.delete('/remove', (req, res, next) => {
       return knex('helps')
         .del()
         .where('assignment_id', id)
-        .andWhere('user_id', req.cookies.token.userId)
+        .andWhere('user_id', 4)
     }).then(() => {
       res.sendStatus(200)
     }).catch((err) => next(err))
