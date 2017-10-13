@@ -8,12 +8,10 @@ const boom = require('boom')
 let router = express.Router();
 
 router.get("/", function(req, res, next) {
-
   res.render('./login/', {
     title: "Learn. More. Better."
-  });
-
-});
+  })
+})
 
 router.post("/", (req, res, next) => {
   console.log(req.body)
@@ -45,13 +43,11 @@ router.post("/", (req, res, next) => {
           } else {
             next(boom.badRequest('Bad password'))
           }
-
         })
         .catch((err) => {
           next(err)
         })
-
     })
-  })
+})
 
-      module.exports = router;
+module.exports = router;

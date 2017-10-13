@@ -2,21 +2,19 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const bodyparser = require('body-parser')
-
 let SECRET = process.env.JWT_KEY;
 let router = express.Router();
 
 router.get('/', (req, res, next) => {
   jwt.verify(req.cookies.token, SECRET, (err, payload) => {
-    console.log('cookie', req.cookies.token);
     if (!req.cookies.token) {
-
       res.redirect("./login")
     } else {
-      console.log('im renderinggggg')
-      res.render('./', { title: 'Learn.More.Better.', _layoutFile: 'layout.ejs'});
+      res.render('./', {
+        userId: req.cookies.token.userId
+      });
     }
-  });
-});
+  })
+})
 
 module.exports = router;
