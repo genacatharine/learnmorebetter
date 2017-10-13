@@ -91,7 +91,7 @@ th {
 #tabledailyplan {
   /*background-image: url("../images/dailyplan3.jpg");*/
   width: 400px;
-  height: 500px;
+  min-height: 525px;
   background-repeat: no-repeat;
   margin-top: 10px;
   margin-bottom: 10px;
