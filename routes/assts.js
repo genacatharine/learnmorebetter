@@ -8,14 +8,7 @@ const jwt = require('jsonwebtoken')
 // var date
 
 router.get('/', function(req, res, next) {
-  jwt.verify(req.cookies.token, SECRET, (err, payload) => {
-    if (!req.cookies.token) {
-      res.redirect("./login")
-    } else {
-      let userId =  payload.userId
-      res.render("./assignments/", {userId})
-    }
-  })
+  res.render("./assignments/")
 });
 
 module.exports = router;

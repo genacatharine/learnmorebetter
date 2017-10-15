@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
    .leftOuterJoin('units', 'dailyplans_events.unit_id', 'units.id')
     .select('dailyplans_events.event_time as time', 'dailyplans_events.plan', 'units.title as unit', 'units.location_url as unitLink')
     .then((plan) => {
-      console.log('plan from end of daily get ', plan)
+      console.log('daily plan for date ', date)
     res.send(plan)
   }).catch((err) => next(err))
 

@@ -30,6 +30,7 @@ router.post("/", (req, res, next) => {
             let token = jwt.sign({
               userId: data.id
             }, SECRET)
+            console.log('made token for userId ', userId);
             res.cookie('token', token, {httpOnly:true}).send({
               redirectURL: './'
             })

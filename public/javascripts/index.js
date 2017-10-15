@@ -36,12 +36,14 @@ $(document).ready(() => {
    })
  })
 
- $.getJSON('/api/v1/assts', {
-   userId: 4
- }).then((data) => {
+ $.getJSON('/api/v1/assts',
+ // {
+ //   userId: 4
+ // }
+).then((data) => {
    console.log('getting assignments widget')
 
-   console.log('data from get ', data)
+   console.log('data from get assignments widget', data)
    let tbody = $('.asstswidget tbody')
    data.forEach((item) => {
      if (!item.grade) {
@@ -54,25 +56,40 @@ $(document).ready(() => {
    })
  })
 
- $.getJSON('/api/v1/helps', {
-   userId: 4
- }).then((data) => {
+ $.getJSON('/api/v1/helps',
+ // {
+ //   userId: 4
+ // }
+).then((data) => {
    console.log('getting helps widget')
 
-   console.log('data from get ', data)
-   let tbody = $('.helpswidget tbody')
-   for (item in data) {
-     tbody.append($(`<tr>
-       <td>${item}</td>
-       </tr>`))
-       data[item].forEach( (user) => {
-         tbody.append($(`<tr>
-         <td></td>
-         <td>${user.first} ${user.last}</td>
-  
-         </tr>`))
-       })
-   }
+   console.log('data from get helps', data)
+  //  let tbody = $('.helpswidget tbody')
+  //  for (item in data) {
+  //    tbody.append($(`<tr>
+  //      <td>${item}</td>
+  //      </tr>`))
+  //      data[item].forEach( (user) => {
+  //        tbody.append($(`<tr>
+  //        <td></td>
+  //        <td>${user.first} ${user.last}</td>
+   //
+  //        </tr>`))
+  //      })
+  //  }
+  let dash = $('.helpswidget tbody')
+  for (item in data) {
+    dash.append($(`<tr>
+      <td>${item}</td>
+      </tr>`))
+      data[item].forEach( (user) => {
+        dash.append($(`<tr>
+        <td></td>
+        <td> <a href="mailto:${user.email}">${user.first} ${user.last}</td>
+
+        </tr>`))
+      })
+  }
  })
 
 

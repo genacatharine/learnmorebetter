@@ -3,6 +3,7 @@ var router = express.Router();
 var knex = require('../knex')
 const jwt = require('jsonwebtoken')
 const SECRET = process.env.JWT_KEY
+var userId
 
 
 /* GET users listing. */
@@ -11,7 +12,7 @@ router.get('/', function(req, res, next) {
     if (!req.cookies.token) {
       res.redirect("./login")
     } else {
-      let userId =  payload.userId
+      userId =  payload.userId
       res.render('./helps/', {
         userId
       })
@@ -22,7 +23,7 @@ router.get('/', function(req, res, next) {
 router.post('/:id', (req, res, next) => {
   knex('helps')
     .insert({
-      'user_id': 4, //
+      'user_id': userId, ////////////////////////////////
       'assignment_id': req.params.id
     }, '*')
     .then((inserted) => {
@@ -41,7 +42,7 @@ router.delete('/remove', (req, res, next) => {
       return knex('helps')
         .del()
         .where('assignment_id', id)
-        .andWhere('user_id', 4)
+        .andWhere('user_id', userId)
     }).then(() => {
       res.sendStatus(200)
     }).catch((err) => next(err))
