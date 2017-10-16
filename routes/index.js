@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
       res.redirect("./login")
     } else {
       res.render('./', {
-        userId: req.cookies.token.userId
+        userId: payload.userId
       });
     }
   })

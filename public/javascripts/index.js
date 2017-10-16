@@ -36,11 +36,7 @@ $(document).ready(() => {
    })
  })
 
- $.getJSON('/api/v1/assts',
- // {
- //   userId: 4
- // }
-).then((data) => {
+ $.getJSON('/api/v1/assts').then((data) => {
    console.log('getting assignments widget')
 
    console.log('data from get assignments widget', data)
@@ -56,11 +52,7 @@ $(document).ready(() => {
    })
  })
 
- $.getJSON('/api/v1/helps',
- // {
- //   userId: 4
- // }
-).then((data) => {
+ $.getJSON('/api/v1/helps').then((data) => {
    console.log('getting helps widget')
 
    console.log('data from get helps', data)

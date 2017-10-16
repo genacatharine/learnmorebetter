@@ -18,19 +18,23 @@ router.post("/", (req, res, next) => {
   if (!req.body.email || !req.body.password) {
     return next(boom.badRequest('Please fill out both fields'))
   }
+  // console.log('email from request', req.body.email)
   knex('users')
     .where('email', req.body.email)
     .first()
     .then((data) => {
+      // console.log('data from post request ', data);
       if (!data) {
         next(boom.badRequest('Bad email or password'))
       }
       bcrypt.compare(req.body.password, data.hashed_password).then((rez) => {
+        // console.log('password good? ', rez)
           if (rez) {
             let token = jwt.sign({
               userId: data.id
             }, SECRET)
-            console.log('made token for userId ', userId);
+            // console.log('made token ', token)
+            // console.log('going to send cookie now')
             res.cookie('token', token, {httpOnly:true}).send({
               redirectURL: './'
             })
