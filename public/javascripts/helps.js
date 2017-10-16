@@ -4,12 +4,13 @@ $(document).ready(function() {
     console.log('data from helps api get ', data)
     let tbody = $('#students tbody')
     for (item in data) {
-      tbody.append($(`<tr class = ${item}>
+      tbody.append($(`<tr>
         <td><button class='remove btn' data-asst='${item}'>Remove</button></td>
         <td>${item}</td>
         </tr>`))
         data[item].forEach( (user) => {
-          tbody.append($(`<tr class = ${item}>
+          console.log('this should be the right id ',user.id)
+          tbody.append($(`<tr class = ${user.id}>
           <td></td>
           <td></td>
           <td>${user.first} ${user.last}</td>
@@ -17,7 +18,7 @@ $(document).ready(function() {
           </tr>`))
         })
     }
-  }).done(()=> {
+  }).done( () => {
     $('.remove').click( (e) => {
       let asst = $(e.target).data('asst')
       if (asst) {
@@ -26,7 +27,9 @@ $(document).ready(function() {
           console.log('asst came back as ', asst)
           console.log('e.target.closeesttr ', $(e.target).closest('tr'))
           $(e.target).closest('tr').remove()
-          // $('tr .${asst}').remove()
+          console.log('asst.id', asst.id)
+          console.log($(`.${asst.id}`))
+          $(`tr .${asst.id}`).remove()
 
         })
       }
