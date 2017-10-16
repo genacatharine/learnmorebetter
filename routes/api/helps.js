@@ -4,7 +4,6 @@ const knex = require('../../knex')
 const boom = require('boom')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const cookieParser = require('cookie-parser')
 const SECRET = process.env.JWT_KEY
 
 
@@ -17,7 +16,7 @@ router.get('/', (req, res, next) => {
     .whereIn('user_id', userId)
 
     knex('helps')
-      .select('assignments.title as asst', 'users.first_name as firstName', 'users.last_name as lastName', 'users.email')
+      .select('assignments.title as asst', 'users.first_name as firstName', 'users.last_name as lastName', 'users.email', 'assignments.id')
       .innerJoin('assignments', 'helps.assignment_id', 'assignments.id')
       .innerJoin('users', 'helps.user_id', 'users.id')
       .whereIn('assignment_id', subquery)
@@ -26,6 +25,7 @@ router.get('/', (req, res, next) => {
     .then((data) => {
       data.forEach((el) => {
         let newUser = {
+          id: el.id,
           first: el.firstName,
           last: el.lastName,
           email: el.email

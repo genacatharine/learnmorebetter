@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
     if (!req.cookies.token) {
       res.redirect("./login")
     } else {
-      userId =  payload.userId
+      userId = payload.userId
       res.render('./helps/', {
         userId
       })
@@ -22,30 +22,42 @@ router.get('/', function(req, res, next) {
 
 router.post('/:id', (req, res, next) => {
   knex('helps')
-    .insert({
-      'user_id': userId, ////////////////////////////////
-      'assignment_id': req.params.id
-    }, '*')
-    .then((inserted) => {
-      res.send(inserted)
-    })
-})
-
-router.delete('/remove', (req, res, next) => {
-  let asst = req.query.asst
-  knex('assignments')
-    .where('title', asst)
+    .where('user_id', userId)
+    .andWhere('assignment_id', req.params.id)
     .first()
-    .then(({
-      id
-    }) => {
-      return knex('helps')
-        .del()
-        .where('assignment_id', id)
-        .andWhere('user_id', userId)
-    }).then(() => {
-      res.sendStatus(200)
-    }).catch((err) => next(err))
+    .then((exists) => {
+      if (!exists) {
+        knex('helps')
+        .insert({
+            'user_id': userId,
+            'assignment_id': req.params.id
+          }, '*')
+          .then((inserted) => {
+            res.send(inserted)
+          })
+      }
+      else {
+        return Materialize.toast('You\'re already in helps for that assignment', 1000)
+      }
+  })
 })
 
-module.exports = router;
+      router.delete('/remove', (req, res, next) => {
+        let asst = req.query.asst
+        knex('assignments')
+          .where('title', asst)
+          .first()
+          .then(({id, title}) => {
+            console.log({id, title})
+            return knex('helps')
+              .del()
+              .where('assignment_id', id)
+              .andWhere('user_id', userId)
+              .returning('assignment_id')
+          }).then((deleted) => {
+            console.log('asst about to send back', asst)
+            res.send(JSON.stringify({asst}))
+          }).catch((err) => next(err))
+      })
+
+      module.exports = router;
