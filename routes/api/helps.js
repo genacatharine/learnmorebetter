@@ -9,12 +9,9 @@ const SECRET = process.env.JWT_KEY
 
 
 router.get('/', (req, res, next) => {
-// let id = 4
-console.log('arrived at helps api get');
-console.log('token at helps api get ', req.cookies.token)
+
   jwt.verify(req.cookies.token, SECRET, (err, payload) => {
     let userId = payload.userId
-    console.log('verified; userId in helps api request is ', userId)
     let helps = {}
     var subquery = knex.pluck('assignment_id').from('helps')
     .whereIn('user_id', userId)
@@ -38,9 +35,6 @@ console.log('token at helps api get ', req.cookies.token)
         }
         helps[el.asst].push(newUser)
       })
-    // var myHelps = knex.pluck('helps.id').from('helps').whereIn('user_id', id)
-    // knex('helps')
-    //   .whereIn('assignment_id', myHelps)
     res.send(helps)
   }).catch((err) => next(err))
 })
