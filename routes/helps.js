@@ -42,22 +42,22 @@ router.post('/:id', (req, res, next) => {
   })
 })
 
-      router.delete('/remove', (req, res, next) => {
-        let asst = req.query.asst
-        knex('assignments')
-          .where('title', asst)
-          .first()
-          .then(({id, title}) => {
-            console.log({id, title})
-            return knex('helps')
-              .del()
-              .where('assignment_id', id)
-              .andWhere('user_id', userId)
-              .returning('assignment_id')
-          }).then((deleted) => {
-            console.log('asst about to send back', asst)
-            res.send(JSON.stringify({asst}))
-          }).catch((err) => next(err))
-      })
+  router.delete('/remove', (req, res, next) => {
+    let asst = req.query.asst
+    knex('assignments')
+      .where('title', asst)
+      .first()
+      .then(({id, title}) => {
+         console.log('{id, title}', {id, title})
+        return knex('helps')
+          .del()
+          .where('assignment_id', id)
+          .andWhere('user_id', userId)
+          .returning('assignment_id')
+      }).then((assignmentId) => {
+        console.log('asst id about to send back', assignmentId)
+        res.send(assignmentId)
+      }).catch((err) => next(err))
+  })
 
       module.exports = router;
