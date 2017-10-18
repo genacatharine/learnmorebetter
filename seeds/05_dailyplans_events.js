@@ -104,6 +104,9 @@ exports.seed = (knex, Promise) => {
           event_time: "16:40:00",
           plan: "Stand Down"
         }
-      ]);
+      ])
+      .then(() => {
+          return knex.raw("SELECT setval('dailyplans_events_id_seq', (SELECT MAX(id) FROM dailyplans_events));")
+            })
     });
 };

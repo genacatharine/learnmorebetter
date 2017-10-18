@@ -10,8 +10,8 @@ let router = express.Router();
 router.get('/', (req, res, next) => {
   res.render('./register/', {
     title: 'Learn.More.Better.'
-  });
-});
+  })
+})
 
 router.post('/', (req, res, next) => {
   const {
@@ -21,8 +21,7 @@ router.post('/', (req, res, next) => {
     password
   } = req.body;
   bcrypt.hash(password, 10)
-    .then( (hash) => {
-
+    .then((hash) => {
       return knex('users') ////////////add no duplicate email validation
         .insert({
           first_name: firstName,
@@ -32,24 +31,29 @@ router.post('/', (req, res, next) => {
           is_enabled: true,
           hashed_password: hash
         }, 'id')
-      }).then( (userId) => {
-        console.log('new user id ', userId[0])
-      let token = jwt.sign({userId: userId[0]}, SECRET)
-      res.cookie('token', token, {httpOnly: true})
-      // let ids = knex('assignments').pluck('id')
-      //   console.log('here are plucked assignment ids ',ids)
-      //
-      //   ids.forEach( (id) => {
-      //     console.log('this is the assignment going in ', id)
-      //     console.log('we can still access userId in the foreach ', userId)
-      //     return knex('users_assignments')
-      //       .insert({
-      //         user_id: userId,
-      //         assignment_id: id
-      //       })
-      //     }).then( () => {
-              res.send({redirectURL: './'})
-      // })
+    }).then((userId) => {
+      let token = jwt.sign({
+        userId: userId[0]
+      }, SECRET)
+      res.cookie('token', token, {
+        httpOnly: true
+      })
+      return knex('assignments').pluck('id')
+        .then((ids) => {
+          Promise.all(ids.map((id) => {
+              return knex('users_assignments')
+                .insert({
+                  user_id: userId[0],
+                  assignment_id: id
+                })
+            }))
+            .then(() => {
+              res.send({
+                redirectURL: './'
+              })
+            })
+        })
     }).catch((err) => next(err))
 })
+
 module.exports = router

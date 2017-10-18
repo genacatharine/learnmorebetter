@@ -175,6 +175,9 @@ exports.seed = (knex, Promise) => {
           unit_id: 19,
           mastery_id: 1
         }
-      ]);
+      ])
+      .then(() => {
+          return knex.raw("SELECT setval('assignments_id_seq', (SELECT MAX(id) FROM assignments));")
+            })
     });
 };

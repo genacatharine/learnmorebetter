@@ -34,6 +34,9 @@ exports.seed = (knex, Promise) => {
         {id: 28, date: "19-Oct-2017", users_id: 3},
         {id: 29, date: "20-Oct-2017", users_id: 2},
         {id: 30, date: "21-Oct-2017", users_id: 1}
-      ]);
+      ])
+      .then(() => {
+          return knex.raw("SELECT setval('dailyplans_id_seq', (SELECT MAX(id) FROM dailyplans));")
+        })
     })
 };
