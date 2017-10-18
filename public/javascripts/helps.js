@@ -1,6 +1,9 @@
 $(document).ready(function() {
 
   $.getJSON('/api/v1/helps').then((data) => {
+    if (!data) {
+      return
+    }
     console.log('data from helps api get ', data)
     let tbody = $('#students tbody')
     for (item in data) {

@@ -23,6 +23,9 @@ router.get('/', (req, res, next) => {
       .whereNot('users.id', userId)
 
     .then((data) => {
+      if (!data) {
+        res.send('')
+      }
       data.forEach((el) => {
         let newUser = {
           id: el.id,
