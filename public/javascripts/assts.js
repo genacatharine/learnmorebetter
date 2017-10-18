@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
   $.getJSON('/api/v1/assts').then((data) => {
     console.log('getting assignments heres the data', data)
     let tbody = $('#assignments tbody')

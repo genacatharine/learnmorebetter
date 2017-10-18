@@ -3,10 +3,10 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const knex = require('../knex')
 const SECRET = process.env.JWT_KEY
+const boom = require('boom')
 
 let router = express.Router();
 
-/* GET home page. */
 router.get('/', (req, res, next) => {
   res.render('./register/', {
     title: 'Learn.More.Better.'
@@ -22,7 +22,13 @@ router.post('/', (req, res, next) => {
   } = req.body;
   bcrypt.hash(password, 10)
     .then((hash) => {
-      return knex('users') ////////////add no duplicate email validation
+      return knex('users')
+        .where('email', email)
+        .then( (exists) => {
+          if (exists) {
+            return next(boom.badRequest('Registered user already exists with that email address'))
+          }
+        return knex('users')
         .insert({
           first_name: firstName,
           last_name: lastName,
@@ -31,6 +37,7 @@ router.post('/', (req, res, next) => {
           is_enabled: true,
           hashed_password: hash
         }, 'id')
+    })
     }).then((userId) => {
       let token = jwt.sign({
         userId: userId[0]

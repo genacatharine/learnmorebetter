@@ -15,6 +15,7 @@ $(document).ready(() => {
       },
       'error': function(err) {
         console.log(err)
+        Materialize.toast('That email address is already registered', 1000)
       }
 
 

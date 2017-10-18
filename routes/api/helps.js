@@ -5,12 +5,13 @@ const boom = require('boom')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const SECRET = process.env.JWT_KEY
+var userId
 
 
 router.get('/', (req, res, next) => {
 
   jwt.verify(req.cookies.token, SECRET, (err, payload) => {
-    let userId = payload.userId
+    userId = payload.userId
     let helps = {}
     var subquery = knex.pluck('assignment_id').from('helps')
     .whereIn('user_id', userId)

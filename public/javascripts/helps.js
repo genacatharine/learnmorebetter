@@ -4,7 +4,6 @@ $(document).ready(function() {
     if (!data) {
       return
     }
-    console.log('data from helps api get ', data)
     let tbody = $('#students tbody')
     for (item in data) {
       tbody.append($(`<tr>
@@ -26,9 +25,6 @@ $(document).ready(function() {
       let asst = $(e.target).data('asst')
       if (asst) {
         $.ajax({url: `/helps/remove?asst=${asst}`, method: "DELETE", dataType: 'json'}).done((assignmentId) => {
-          console.log('asst came back to json request as ', assignmentId)
-          console.log('how do i match a class with a number? ', $(`.a${assignmentId}`))
-          console.log('it should look more like ', $(e.target).closest('tr'))
           $(e.target).closest('tr').remove()
          $(`.a${assignmentId}`).remove()
 
