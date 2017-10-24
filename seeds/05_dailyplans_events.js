@@ -39,8 +39,7 @@ exports.seed = (knex, Promise) => {
           id: 6,
           dailyplan_id: 2,
           event_time: "10:00:00",
-          plan: "Lesson : Promises",
-          unit_id: 15
+          plan: "Swift and Xcode with Lisa"
         },
         {
           id: 7,
@@ -51,8 +50,8 @@ exports.seed = (knex, Promise) => {
         {
           id: 8,
           dailyplan_id: 2,
-          event_time: "16:40:00",
-          plan: "Stand Down"
+          event_time: "13:00:00",
+          plan: "Python with Alicia"
         },
         {
           id: 9,
@@ -64,8 +63,7 @@ exports.seed = (knex, Promise) => {
           id: 10,
           dailyplan_id: 3,
           event_time: "10:00:00",
-          plan: "Lesson : Promises",
-          unit_id: 15
+          plan: "IoT with Pete"
         },
         {
           id: 11,
@@ -76,8 +74,8 @@ exports.seed = (knex, Promise) => {
         {
           id: 12,
           dailyplan_id: 3,
-          event_time: "16:40:00",
-          plan: "Stand Down"
+          event_time: "13:00:00",
+          plan: "Ruby on Rails with Craig"
         },
         {
           id: 13,
@@ -89,8 +87,7 @@ exports.seed = (knex, Promise) => {
           id: 14,
           dailyplan_id: 4,
           event_time: "10:00:00",
-          plan: "Lesson : Promises",
-          unit_id: 15
+          plan: "UFE"
         },
         {
           id: 15,
@@ -101,8 +98,32 @@ exports.seed = (knex, Promise) => {
         {
           id: 16,
           dailyplan_id: 4,
-          event_time: "16:40:00",
-          plan: "Stand Down"
+          event_time: "13:00:00",
+          plan: "Career Services"
+        },
+        {
+          id: 17,
+          dailyplan_id: 4,
+          event_time: "10:00:00",
+          plan: "UFE"
+        },
+        {
+          id: 18,
+          dailyplan_id: 4,
+          event_time: "12:00:00",
+          plan: "Lunch"
+        },
+        {
+          id: 19,
+          dailyplan_id: 4,
+          event_time: "13:00:00",
+          plan: "UFE"
+        },
+        {
+          id: 20,
+          dailyplan_id: 4,
+          event_time: "15:00:00",
+          plan: "Lightning Talks"
         }
       ])
       .then(() => {
