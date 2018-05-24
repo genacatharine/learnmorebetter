@@ -71,13 +71,6 @@
   /*margin: 0;*/
 }
 
-
-/*body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}*/
-
 th {
   font-size: 2em;
   font-family: 'PT Sans Caption', sans-serif;
@@ -103,12 +96,6 @@ th {
   /*width: 50%;*/
 }
 
-
-/*main {
-
-  flex: 1 0 auto;
-}*/
-
 h1 {
   /*font-family: helvetica;*/
   font-weight: bold;
@@ -122,7 +109,7 @@ h1 {
 }
 
 .container {
-  /*flex-direction: row*/
+  /* flex-direction: row */
 }
 
 #datepickerandtable {
@@ -146,10 +133,11 @@ main {
 #helps {
 
 }
+
 /*.widget {
   border:2px solid black;
 }*/
+
 #dash {
   max-width:1200px
-
 }
