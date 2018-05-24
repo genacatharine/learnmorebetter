@@ -3,68 +3,61 @@
 <head>
   <% include ./partials/head.ejs %>
   <script src="../javascripts/index.js"></script>
-
 </head>
 <body>
   <main>
     <% include ./partials/nav.ejs %>
-      <!-- <div class="container">
-        <h1 class="center-align">Learn | More | Better.</h1>
-        <div class="container col-xs-1" align="center">
-          <div class="row" align="center">
-            <img src="/images/galvanize_logo_orange_bg_200x200_360.jpg" class="circle">
-          </div>
-        </div>
-      </div> -->
-<div id = 'dash'>
-      <div class='row'>
-        <div class='col m12'>
-        <div class='widget daily col m4'>
-          <h4 class='center'>My Daily Plan</h4>
-          <table class="dailyplanwidget table ">
-            <thead>
-              <th>Time </th>
-              <th>Plan </th>
-              <th>Unit </th>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>
-
-
-
-        <div class='widget assts col m5'>
-            <h4 class='center'>Assignments</h4>
-          <table class="asstswidget table ">
-            <thead>
-              <th>Due</th>
-              <th>Submit</th>
-              <th>Help</th>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>
-
-
-        <div class='widget helps col m3'>
-            <h4 class='center'>My Helps</h4>
-          <table class="helpswidget table ">
-            <thead>
-              <th>Assignment</th>
-              <th>Students</th>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>
+    <!-- <div class="container">
+    <h1 class="center-align">Learn | More | Better.</h1>
+    <div class="container col-xs-1" align="center">
+      <div class="row" align="center">
+        <img src="/images/galvanize_logo_orange_bg_200x200_360.jpg" class="circle">
       </div>
     </div>
-</div>
-</div>
-  </main>
-
-  <% include ./partials/footer.ejs %>
+    </div> -->
+    <div id = 'dash'>
+      <div class='row'>
+        <div class='col m12'>
+          <div class='widget daily col m4'>
+            <h4 class='center'>My Daily Plan</h4>
+            <table class="dailyplanwidget table ">
+              <thead>
+                <th>Time </th>
+                <th>Plan </th>
+                <th>Unit </th>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+            </div>
+              <div class='widget assts col m5'>
+                <h4 class='center'>Assignments</h4>
+                <table class="asstswidget table ">
+                  <thead>
+                    <th>Due</th>
+                    <th>Submit</th>
+                    <th>Help</th>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+              <div class='widget helps col m3'>
+                <h4 class='center'>My Helps</h4>
+                <table class="helpswidget table ">
+                  <thead>
+                    <th>Assignment</th>
+                    <th>Students</th>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <% include ./partials/footer.ejs %>
   </body>
 </html>
