@@ -1,19 +1,17 @@
-var express = require('express');
-var router = express.Router();
-var knex = require('../knex')
-const jwt = require('jsonwebtoken')
-const SECRET = process.env.JWT_KEY
-var userId
+const router = require('express').Router();
+const knex = require('../knex');
+const jwt = require('jsonwebtoken');
+const SECRET = process.env.JWT_KEY;
 
-router.get('/', function(req, res, next) {
+let userId;
+
+router.get('/', (req, res, next) => {
   jwt.verify(req.cookies.token, SECRET, (err, payload) => {
     if (!req.cookies.token) {
-      res.redirect("./login")
+      res.redirect("./login");
     } else {
-      userId = payload.userId
-      res.render('./helps/', {
-        userId
-      })
+      userId = payload.userId;
+      res.render('./helps/', { userId });
     }
   })
 })
@@ -56,4 +54,5 @@ router.post('/:id', (req, res, next) => {
       }).catch((err) => next(err))
   })
 
-      module.exports = router;
+
+module.exports = router;
