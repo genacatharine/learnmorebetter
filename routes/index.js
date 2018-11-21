@@ -1,9 +1,7 @@
-const express = require('express');
+const router = require('express').Router();
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
-const bodyparser = require('body-parser')
 let SECRET = process.env.JWT_KEY;
-let router = express.Router();
+
 
 router.get('/', (req, res, next) => {
   jwt.verify(req.cookies.token, SECRET, (err, payload) => {
@@ -16,5 +14,6 @@ router.get('/', (req, res, next) => {
     }
   })
 })
+
 
 module.exports = router;
