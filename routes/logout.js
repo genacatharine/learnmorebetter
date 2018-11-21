@@ -1,12 +1,10 @@
-var express = require('express')
-var router = express.Router()
-const knex = require('../knex')
-const boom = require('boom')
-const bcrypt = require('bcrypt')
+var router = require('express').Router();
+
 
 router.get('/', (req, res, next) => {
-  res.clearCookie('token')
-  res.redirect('./')
-})
+  res.clearCookie('token');
+  res.redirect('./');
+});
+
 
 module.exports = router;
