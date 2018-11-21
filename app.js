@@ -1,16 +1,16 @@
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 /* dependencies */
-var path = require('path');
-var express = require('express');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const path = require('path');
+const express = require('express');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 //var favicon = require('serve-favicon');
-var logger = require('morgan');
 
-var app = express();
+const app = express();
+const routerAPI = express.Router();
+const routerAuth = express.Router();
 
 /* routing modules */
 let index = require('./routes/index');
@@ -25,7 +25,7 @@ let users = require('./routes/users');
 let apihelps = require('./routes/api/helps');
 let logout = require('./routes/logout');
 
-/* view engine setup for EJS */
+/* Set view engine to EJS */
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -50,14 +50,14 @@ app.use('/api/v1/helps', apihelps);
 app.use('/logout', logout);
 
 /* catch 404 and forward to error handler */
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+app.use((req, res, next) => {
+  let err = new Error('Not Found');
   err.status = 404;
   next(err);
 })
 
 /* error handler */
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {}
