@@ -1,12 +1,10 @@
-const express = require('express');
+const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
-var SECRET = process.env.JWT_KEY
-const knex = require('../knex')
-const boom = require('boom')
-const cookieParser = require('cookie-parser')
+const jwt = require('jsonwebtoken');
+const knex = require('../knex');
+const boom = require('boom');
 
-let router = express.Router();
+var SECRET = process.env.JWT_KEY;
 
 router.get("/", function(req, res, next) {
   res.render('./login/', {
@@ -48,5 +46,6 @@ router.post("/", (req, res, next) => {
         })
     })
 })
+
 
 module.exports = router;
